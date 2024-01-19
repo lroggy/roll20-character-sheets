@@ -1,0 +1,463 @@
+<script type="text/worker">
+
+
+    function rollDice() {
+        return 1 + Math.floor(Math.random() * 6);
+    }
+
+    on('clicked:roll_nom', () => {
+        let tableIndex = rollDice() + rollDice();
+        let dice = rollDice();
+        let table = [];
+        switch (tableIndex){
+            case 2:
+                table = ["Éloise", "Misère", "Morgane", "Juliane", "Colombe", "Gisèle"]
+                break;
+            case 3:
+                table = ["Alban", "Hughes", "François", "Eben", "Obran", "Caleb"];
+                break;
+            case 4:
+                table = ["Gertrude", "Joséphine", "Isabelle", "Agnès", "Ariane", "Aude"];
+                break;
+            case 5:
+                table = ["Nerval de Nodier", "Clothilde de Franchame", "Clovis Le Destrier", "Mélisande Verminage", "Marin d’Abranville", "Émilienne de Sinclair"];
+                break;
+            case 6:
+                table = ["Gaultier", "Berthe", "Bathilde", "Béatrice", "Marcus", "Wilfrid"];
+                break;
+            case 7:
+                table = ["Jean", "Pierre", "Robert", "Tristan", "Tancrède", "Firmin"];
+                break;
+            case 8:
+                table = ["Zacharie", "Pierre", "Radegonde", "Frédéric", "Guy", "Augustin"];
+                break;
+            case 9:
+                table = ["Neville", "Baudry", "Enguerrand", "Jermin", "Godefroy", "Florentin"];
+                break;
+            case 10:
+                table = ["Margot", "Odile", "Mélusine", "Louison", "Victoire", "Venance"];
+                break;
+            case 11:
+                table = ["Roland", "Pacôme", "Virgile", "Robin", "Philibert", "Romaric"];
+                break;
+            case 12:
+                table = ["Monroe", "Wieldstad", "Faustus", "Mensh", "Phyllis", "de Gonzague"];
+                break;
+        }
+
+        setAttrs({
+            nom: "Dr. "+table[dice-1]
+        });
+    });
+
+    on('clicked:roll_genre', () => {
+        let dice = rollDice();
+        let var_genre;
+        switch(dice){
+            case 1:
+                var_genre="Intersexue";
+                break;
+            case 2:
+            case 3:
+                var_genre="Femme";
+                break;
+            case 4:
+            case 5:
+                var_genre="Homme";
+                break;
+            case 6:
+                var_genre="Transgenre";
+                break;
+        }
+
+        setAttrs({
+            genre: var_genre
+        });
+    });
+
+    on('clicked:roll_signe', () => {
+        let tableIndex = rollDice() + rollDice();
+        let dice = rollDice();
+        let table = [];
+        switch (tableIndex){
+            case 2:
+                table = ["Œil crevé", "Yeux vairons", "Nez coupé, tombé à cause du froid", "Sans aucune pilosité", "Mèche blanche parmi des cheveux bruns", "Absence de dents"];
+                break;
+            case 3:
+                table = ["Nez cassé", "Mâchoire tordue", "Verrue sur le nez", "Cicatrice sur le visage", "Lobe d’oreille manquant", "Barbe rousse tressée"];
+                break;
+            case 4:
+                table = ["Crâne scalpé", "Visage marqué au fer rouge", "Gorge portant la marque d’une pendaison", "Longue écharpe écarlate au cou", "Langue tranchée", "Sans sourcils"];
+                break;
+            case 5:
+                table = ["Mâchoire carrée", "Nez qui coule sans arrêt", "Lèvres lippues", "Longs cheveux blancs", "Bec-de-lièvre", "Crâne tondu"];
+                break;
+            case 6:
+                table = ["Ongles pourris", "Doigt manquant", "Paume tatouée", "Mains très ridées", "Traces de brûlures sur les avant-bras", "Bras de longueurs différentes"];
+                break;
+            case 7:
+                table = ["Carrure très imposante", "Grand mais fin", "Obèse", "Voûté", "Colonne vertébrale tordue", "Jambe gauche manquante"];
+                break;
+            case 8:
+                table = ["Couperose prononcée", "Sent l’urine", "Estomac qui gargouille en permanence", "Veines apparentes", "Cheveux hirsutes", "Haleine immonde et odorante"];
+                break;
+            case 9:
+                table = ["Amputé d’un bras", "Marques de tortures dans le cou", "Avant-bras gauche déformé", "Boite fortement de la jambe droite", "Aveugle", "Respiration forte et sifflante"];
+            break;
+            case 10:
+                table = ["Strabisme", "Visage en partie brûlé", "Crache des glaires régulièrement", "Tremble des mains", "Voix étouffée", "Petit et rapide"];
+                break;
+            case 11:
+                table = ["Masque de fer fondu", "Armoiries sur le plastron", "Épée dont la garde est une gueule de dragon", "Porte des gants noirs", "Porte une besace tâchée de sang", "Paire de bottes en fourrure sentant l’humidité"];
+                break;
+            case 12:
+                table = ["Voix aiguë", "Parle essentiellement avec des verbes", "Parle de lui-même à la troisième personne", "Ricane sans cesse", "Bégaye", "Tousse beaucoup"];
+                break;
+        }
+
+        setAttrs({
+            signe: table[dice-1],
+            hidden_signe: true
+        });
+    });
+
+
+
+    on('clicked:roll_profil', () => {
+        let dice = rollDice();
+        let profil;
+        let ame;
+        let corps;
+        let esprit;
+        let combat;
+        let capacite_profil;
+        let competences_profil;
+        let equipement_profil;
+
+
+        switch(dice){
+            case 1:
+                profil="Cobaye";
+                ame=3;
+                corps=5;
+                esprit=2;
+                combat=3;
+                capacite_profil="Particulièrement résistant, reste en vie à 0 point de Corps et meurt à -1 (une fois par partie).";
+                competences_profil="Survie.";
+                equipement_profil="";
+                break;
+            case 2:
+                profil="Étudiant";
+                ame=5;
+                corps=3;
+                esprit=3;
+                combat=2;
+                capacite_profil="Peut poser 1D6 questions par partie (réponse fermée où la Comtesse ne peut répondre que par oui ou non).";
+                competences_profil="Lire & écrire,Observation,Connaissances théoriques médicales.";
+                equipement_profil="Grimoires vierges,Plume et encrier.";
+                break;
+            case 3:
+            case 4:
+                profil="Professeur";
+                ame=4;
+                corps=3;
+                esprit=4;
+                combat=2;
+                capacite_profil="Peut sacrifier 1 point de Corps pour obtenir une réussite, une fois par partie.";
+                competences_profil="Lire & écrire,Baratinage,Connaissances pratiques médicales.";
+                equipement_profil="Carnet de notes,Plume et encrier.";
+                break;
+            case 5:
+                profil="Expert";
+                ame=3;
+                corps=3;
+                esprit=5;
+                combat=2;
+                capacite_profil="Particulièrement sûr de lui, peut ignorer une Réaction au stress, une fois partie.";
+                competences_profil="Lire & écrire,Sait tout ou presque,Connaissances pratiques médicales.";
+                equipement_profil="Encyclopédies";
+                break;
+            case 6:
+                profil="Indépendant";
+                ame=4;
+                corps=3;
+                esprit=2;
+                combat=4;
+                capacite_profil="Une fois par partie, peut décider de changer l’issue d’un combat que la Comtesse vient de décrire (à l’exception du combat final).";
+                competences_profil="Débrouillardise,Connaissances médicales.";
+                equipement_profil="Rapière.";
+                break;
+        }
+        
+        setAttrs({
+            profil: profil,
+            ame: ame,
+            corps: corps,
+            esprit: esprit,
+            combat: combat,
+            capacite_profil: capacite_profil,
+            competences_profil: competences_profil,
+            equipement_profil: equipement_profil
+        });
+    });
+
+
+
+    on('clicked:roll_specialisation', () => {
+        let dice = rollDice();
+        let specialisation;
+        let capacite_specialisation;
+        let competences_specialisation;
+        let equipement_specialisation;
+        
+        switch(dice){
+            case 1:
+                specialisation="Pieu";
+                capacite_specialisation="Permet à une personne (lui ou quelqu’un d’autre) de regagner l’intégralité de ses points de Corps, une fois par partie";
+                competences_specialisation="Connaissances religieuses,Prières.";
+                equipement_specialisation="Chapelet,Bible de Solaria,Fouet épineux.";
+                break;
+            case 2:
+            specialisation="Hypnotiseur";
+            capacite_specialisation="Permet à une personne (lui ou quelqu’un d’autre) de permuter définitivement ses niveaux de Caractéristiques en cours, une fois par partie.";
+            competences_specialisation="Résistance à la domination mentale,Psychologie.";
+            equipement_specialisation="Pendule.";
+            break;
+            case 3:
+                specialisation="Maitre-animal";
+                capacite_specialisation="Peut appeler ses animaux dressés (chiens, corbeaux, rats, au choix à la création) pour l’aider durant une scène. L’ensemble des animaux possède 4 points à répartir entre Corps et Combat. Exemples : peut donc constituer en une multitude de rats à 3 en Esprit et 1 en Combat, un énorme dogue à 3 en Corps et 1 en Combat, une nuée de corbeaux à 2 en Corps et 2 en Combat.";
+                competences_specialisation="Connaissances des animaux,Dressage.";
+                equipement_specialisation="Nourriture (pour animaux),Sifflet (pour appeler le ou les animaux).";
+                break;
+            case 4:
+                specialisation="Praticien";
+                capacite_specialisation="Habile de ses mains, une fois par partie, capable d’amputer sans tuer une personne qui vient d’être contaminée (provoquant la perte de 1 point de Corps définitive mais évacuant tout risque d’infection).";
+                competences_specialisation="Chirurgie médiévale,Gestes précis.";
+                equipement_specialisation="Outils propres,Bandages,Désinfectants.";
+                break;
+            case 5:
+                specialisation="Chimiste";
+                capacite_specialisation="Une fois par partie, au lieu de subir une blessure, peut sortir de sa poche une préparation chimique capable de lui sauver la vie pour ce tour. Au choix : préparation à base de térébenthine [hautement inflammable], fumigène ou à base de venin [incapacitante/paralysante pour la scène].";
+                competences_specialisation="Habile,Connaissances chimiques.";
+                equipement_specialisation="Quelques potions prêtes à jeter (lancer 1D6 à chaque lancer. Si le résultat est supérieur à l’Esprit, le personnage a oublié d’en préparer davantage),Outils de chimie,Tubes à essai,Alambiques.";
+                break;
+            case 6:
+                specialisation="Drogué";
+                capacite_specialisation="Toujours un peu perdu dans ses pensées et ses rêveries, peut totalement ignorer une Réaction au stress une fois par partie.";
+                competences_specialisation="Résistance aux drogues,Connaissances des herbacées.";
+                equipement_specialisation="Pharmacopée,Mandragore,Matériel pour décoctions.";
+                break;
+        }
+        
+        setAttrs({
+            specialisation: specialisation,
+            capacite_specialisation: capacite_specialisation,
+            competences_specialisation: competences_specialisation,
+            equipement_specialisation: equipement_specialisation
+        });
+        
+    });
+
+
+    on('clicked:roll_aspiration', () => {
+        let dice = rollDice();
+        let aspiration;
+        let description_aspiration;
+        
+        switch(dice){
+            case 1:
+            aspiration="Ego";
+            description_aspiration="Le personnage a subi une humiliation qu’il entend laver en agissant au sein de la brigade pour prouver sa valeur.";
+            break;
+            case 2:
+            aspiration="Désir de mort";
+            description_aspiration="Le personnage est blasé, dépressif, a subi un drame impossible à supporter et va au-devant du danger sans se soucier de sa vie.";
+            break;
+            case 3:
+            aspiration="Sapience";
+            description_aspiration="Le personnage cherche à assouvir ses connaissances, à en savoir toujours plus, à être dépositaire de secrets jusqu’alors irrésolus.";
+            break;
+            case 4:
+            aspiration="Challenge";
+            description_aspiration="Le personnage aime se mesurer au danger, défier ses peurs et affronter des adversaires.";
+            break;
+            case 5:
+            aspiration="Humanité";
+            description_aspiration="Le personnage veut secourir autant de civils que possible, aider les gens dans le besoin et tenter d’apporter la paix.";
+            break;
+            case 6:
+            aspiration="Dette";
+            description_aspiration="Le personnage a une dette à payer, doit survivre pour rembourser des frais ou mettre ses proches à l’abri du besoin.";
+            break;
+        }
+        
+        setAttrs({
+            aspiration: aspiration,
+            description_aspiration: description_aspiration
+        });
+        
+    });
+
+
+    on('clicked:roll_stress', () => {
+        let dice = rollDice();
+        let stress;
+        let description_stress;
+        
+        switch(dice){
+            case 1:
+            stress="Crohn";
+            description_stress="Le personnage se défèque dessus et utilise sa Caractéristique Corps pour tout le reste de la scène en lieu et place de l’Esprit.";
+            break;
+            case 2:
+            stress="Tremblotant";
+            description_stress="Le personnage se met à trembler et relance une fois chaque jet de dés réussi pour toute la durée de la scène.";
+            break;
+            case 3:
+            stress="Lâche";
+            description_stress="Le personnage fuit immédiatement la scène, et part se cacher pour toute la durée de la scène.";
+            break;
+            case 4:
+            stress="Charlatan";
+            description_stress="Contrairement à ce qui est indiqué sur sa feuille de Docteur, le personnage ne possède aucune des Compétences indiquées et ne peut donc y recourir pour toute la durée de la scène.";
+            break;
+            case 5:
+            stress="Hystérique";
+            description_stress="Le personnage hallucine et n’est pas capable de faire la différence entre ennemis et alliés pour toute la durée de la scène. Après chaque action, effectue un jet d’Esprit, si raté, l’action est différente de celle souhaitée (ciblait la mauvaise personne).";
+            break;
+            case 6:
+            stress="Masochiste";
+            description_stress="Le personnage se mutile et perd 1 point de Corps immédiatement (meurt, suicidé, si ces points de Corps tombent à 0).";
+            break;
+        }
+        
+        setAttrs({
+            stress: stress,
+            description_stress: description_stress
+        });
+        
+    });
+    
+
+</script>
+
+
+<div class="container">
+
+    <div class="bloc">
+        <div class="attribut">
+            <label>
+                <span class="attribute_name">Nom : </span>
+                <input class="attribute_value" type="text" name="attr_nom" style="margin-right: auto;"/>
+                <span style="max-width: max-content;"></span>
+                <button class="random_button" type="action" name="act_roll_nom">Tirer</button>
+            </label>
+        </div>
+        <div class="attribut">
+            <label>
+                <span class="attribute_name">Genre : </span>
+                <select class="attribute_value" name="attr_genre">
+                    <option value="Intersexue">Intersexué</option>
+                    <option value="Femme">Femme</option>
+                    <option value="Homme">Homme</option>
+                    <option value="Transgenre">Transgenre</option>
+                </select>
+                <button class="random_button" type="action" name="act_roll_genre">Tirer</button>
+            </label>
+        </div>
+        <div class="attribut">
+            <label>
+                <span class="attribute_name">Signe particulier : </span>
+                <span class="attribute_value" type="text" name="attr_signe"></span>
+                <button class="random_button" type="action" name="act_roll_signe">Tirer</button>
+            </label>
+        </div>
+        <div class="attribut">
+            <label>
+                <span class="attribute_name">profil : </span>
+                <span class="attribute_value" name="attr_profil"></span>
+                <button class="random_button" type="action" name="act_roll_profil">Tirer</button>
+            </label>
+        </div>
+        <div class="attribut">
+            <label>
+                <span class="attribute_name">Spécialisation : </span>
+                <span class="attribute_value" name="attr_specialisation"></span>
+                <button class="random_button" type="action" name="act_roll_specialisation">Tirer</button>
+            </label>
+        </div>
+        <div class="attribut">
+            <label>
+                <span class="attribute_name">Aspiration : </span>
+                <span class="attribute_value" type="text" name="attr_aspiration"></span>
+                <button class="random_button" type="action" name="act_roll_aspiration">Tirer</button>
+            </label>
+            <span name="attr_description_aspiration" value=""></span>
+        </div>
+        <div class="attribut">
+            <label>
+                <span class="attribute_name">Réaction au stress : </span>
+                <span class="attribute_value" type="text" name="attr_stress"></span>
+                <button class="random_button" type="action" name="act_roll_stress">Tirer</button>
+            </label>
+            <span name="attr_description_stress" value=""></span>
+        </div>
+    </div>
+
+    <div class="bloc">
+        <h1>Caractéristiques</h1>
+        <div>
+            <h2>Ame</h2>
+            <input type="number" name="attr_ame" min="1" max="5" />
+            <button type="roll" name="roll_ame" value="/r d6<@{ame} ">Normal</button>
+        </div>
+        <div>
+            <h2>Corps</h2>
+            <input type="number" name="attr_corps" min="-1" max="5" />
+            <button type="roll" name="roll_corps" value="/r d6<@{corps} ">Normal</button>
+        </div>
+        <div>
+            <h2>Esprit</h2>
+            <input type="number" name="attr_esprit" min="1" max="5" />
+            <button type="roll" name="roll_esprit" value="/r d6<@{esprit} ">Normal</button>
+            <button type="roll" name="roll_esprit" value="/r 2d6kl1<@{esprit} ">Avantage</button>
+            <button type="roll" name="roll_esprit" value="/r 2d6kh1<@{esprit} ">Désavantage</button>
+        </div>
+        <div>
+            <h2>Hargne</h2>
+            <input type="number" name="attr_combat" min="1" max="5" />
+            <button type="roll" name="roll_combat" value="/r d6<@{combat} ">Normal</button>
+            <button type="roll" name="roll_combat" value="/r 2d6kl1<@{combat} ">Avantage</button>
+            <button type="roll" name="roll_combat" value="/r 2d6kh1<@{combat} ">Désavantage</button>
+        </div>
+    </div>
+
+
+
+    <div class="bloc">
+        <h1>Compétences</h1>
+        <span name="attr_competences_profil" value=""></span><br/>
+        <span name="attr_competences_specialisation" value=""></span>
+    </div>
+    <div class="bloc">
+        <h1>Capacités</h1>
+        <span name="attr_capacite_profil" value=""></span><br/>
+        <span name="attr_capacite_specialisation" value=""></span>
+    </div>
+    <div class="bloc">
+        <h1>Equipement</h1>
+        <span>chapeau<br />
+            bec de médecin caractéristique<br />
+            paire de lunettes protectrices en verre<br />
+            tunique de toile cirée<br />
+            long manteau de cuir<br />
+            épée courte<br />
+            besace, sac ou paquetage contenant des outils de médecine (baguette, clystère, lame pour la saignée,
+            etc.)<br />
+            quelques fioles et décoctions (dont de la thériaque, contrepoison romain)</span><br/>
+        <span name="attr_equipement_profil" value=""></span><br/>
+        <span name="attr_equipement_specialisation" value=""></span>
+    </div>
+
+
+</div>

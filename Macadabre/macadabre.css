@@ -1,0 +1,38 @@
+.bloc {
+    border: 1px solid #777;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.attribut{
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.attribute_name{
+    min-width: 150px;
+    margin: auto;
+    width: 20%;
+    padding-left: auto;
+    margin-left: auto;
+}
+
+.attribute_value{
+    min-width: 150px;
+    /* margin-right: auto; */
+    margin-bottom: 0px;
+}
+
+.random_button{
+    position: absolute;
+    right: 0;
+    margin-left: auto;
+    /* display: none; */
+}
+
+.reinitialize_button{
+    position: absolute;
+    right: 0;
+}
