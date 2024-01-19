@@ -343,67 +343,64 @@
 
 
 <div class="container">
-
     <div class="bloc">
         <div class="attribut">
-            <label>
-                <span class="attribute_name">Nom : </span>
-                <input class="attribute_value" type="text" name="attr_nom" style="margin-right: auto;"/>
-                <span style="max-width: max-content;"></span>
-                <button class="random_button" type="action" name="act_roll_nom">Tirer</button>
-            </label>
+            <div class="attribut_double">
+                <h3 class="attribute_name">Nom : </h3>
+                <input class="attribute_value" type="text" name="attr_nom" />
+            </div>
+            <button class="random_button" type="action" name="act_roll_nom">Tirer</button>
         </div>
         <div class="attribut">
-            <label>
-                <span class="attribute_name">Genre : </span>
+            <div class="attribut_double">
+                <h3 class="attribute_name">Genre : </h3>
                 <select class="attribute_value" name="attr_genre">
                     <option value="Intersexue">Intersexué</option>
                     <option value="Femme">Femme</option>
                     <option value="Homme">Homme</option>
                     <option value="Transgenre">Transgenre</option>
                 </select>
-                <button class="random_button" type="action" name="act_roll_genre">Tirer</button>
-            </label>
+            </div>
+            <button class="random_button" type="action" name="act_roll_genre">Tirer</button>
         </div>
         <div class="attribut">
-            <label>
-                <span class="attribute_name">Signe particulier : </span>
+            <div class="attribut_double">
+                <h3 class="attribute_name">Signe particulier : </h3>
                 <span class="attribute_value" type="text" name="attr_signe"></span>
-                <button class="random_button" type="action" name="act_roll_signe">Tirer</button>
-            </label>
+            </div>
+            <button class="random_button" type="action" name="act_roll_signe">Tirer</button>
         </div>
         <div class="attribut">
-            <label>
-                <span class="attribute_name">profil : </span>
+            <div class="attribut_double">
+                <h3 class="attribute_name">profil : </h3>
                 <span class="attribute_value" name="attr_profil"></span>
-                <button class="random_button" type="action" name="act_roll_profil">Tirer</button>
-            </label>
+            </div>
+            <button class="random_button" type="action" name="act_roll_profil">Tirer</button>
         </div>
         <div class="attribut">
-            <label>
-                <span class="attribute_name">Spécialisation : </span>
+            <div class="attribut_double">
+                <h3 class="attribute_name">Spécialisation : </h3>
                 <span class="attribute_value" name="attr_specialisation"></span>
-                <button class="random_button" type="action" name="act_roll_specialisation">Tirer</button>
-            </label>
+            </div>
+            <button class="random_button" type="action" name="act_roll_specialisation">Tirer</button>
         </div>
         <div class="attribut">
-            <label>
-                <span class="attribute_name">Aspiration : </span>
+            <div class="attribut_double">
+                <h3 class="attribute_name">Aspiration : </h3>
                 <span class="attribute_value" type="text" name="attr_aspiration"></span>
-                <button class="random_button" type="action" name="act_roll_aspiration">Tirer</button>
-            </label>
-            <span name="attr_description_aspiration" value=""></span>
+            </div>
+            <button class="random_button" type="action" name="act_roll_aspiration">Tirer</button>
         </div>
+        <span name="attr_description_aspiration" value=""></span>
         <div class="attribut">
-            <label>
-                <span class="attribute_name">Réaction au stress : </span>
+            <div class="attribut_double">
+                <h3 class="attribute_name">Réaction au stress : </h3>
                 <span class="attribute_value" type="text" name="attr_stress"></span>
-                <button class="random_button" type="action" name="act_roll_stress">Tirer</button>
-            </label>
-            <span name="attr_description_stress" value=""></span>
+            </div>
+            <button class="random_button" type="action" name="act_roll_stress">Tirer</button>
         </div>
+        <span name="attr_description_stress" value=""></span>
     </div>
-
     <div class="bloc">
         <h1>Caractéristiques</h1>
         <div>
@@ -431,17 +428,14 @@
             <button type="roll" name="roll_combat" value="/r 2d6kh1<@{combat} ">Désavantage</button>
         </div>
     </div>
-
-
-
     <div class="bloc">
         <h1>Compétences</h1>
-        <span name="attr_competences_profil" value=""></span><br/>
+        <span name="attr_competences_profil" value=""></span><br />
         <span name="attr_competences_specialisation" value=""></span>
     </div>
     <div class="bloc">
         <h1>Capacités</h1>
-        <span name="attr_capacite_profil" value=""></span><br/>
+        <span name="attr_capacite_profil" value=""></span><br />
         <span name="attr_capacite_specialisation" value=""></span>
     </div>
     <div class="bloc">
@@ -454,10 +448,8 @@
             épée courte<br />
             besace, sac ou paquetage contenant des outils de médecine (baguette, clystère, lame pour la saignée,
             etc.)<br />
-            quelques fioles et décoctions (dont de la thériaque, contrepoison romain)</span><br/>
-        <span name="attr_equipement_profil" value=""></span><br/>
+            quelques fioles et décoctions (dont de la thériaque, contrepoison romain)</span><br />
+        <span name="attr_equipement_profil" value=""></span><br />
         <span name="attr_equipement_specialisation" value=""></span>
     </div>
-
-
 </div>
