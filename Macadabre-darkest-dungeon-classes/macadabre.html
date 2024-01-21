@@ -5,11 +5,18 @@
         return 1 + Math.floor(Math.random() * 6);
     }
 
+    function rollDiceWithNumber(nb) {
+        return 1 + Math.floor(Math.random() * nb);
+    }
+
     on('clicked:roll_nom', () => {
-        let tableIndex = rollDice() + rollDice();
+        let tableIndex = rollDiceWithNumber(12);
         let dice = rollDice();
         let table = [];
         switch (tableIndex){
+            case 1:
+                table = ["Paracelsus", "Tardif", "Junia", "Baldwin", "Audrey", "Boudica"]
+                break;
             case 2:
                 table = ["Éloise", "Misère", "Morgane", "Juliane", "Colombe", "Gisèle"]
                 break;
@@ -51,7 +58,7 @@
     });
 
     on('clicked:roll_genre', () => {
-        let dice = rollDice();
+        let dice = rollDiceWithNumber(12);
         let var_genre;
         switch(dice){
             case 1:
@@ -80,6 +87,9 @@
         let dice = rollDice();
         let table = [];
         switch (tableIndex){
+            case 1:
+                table = ["Doigt supplémentaire", "Langue fourchue", "Forte odeur corporelle", "Cheveux graisseux", "Marqué au fer rouge", "Bandeau sur l'oeil"];
+                break;
             case 2:
                 table = ["Œil crevé", "Yeux vairons", "Nez coupé, tombé à cause du froid", "Sans aucune pilosité", "Mèche blanche parmi des cheveux bruns", "Absence de dents"];
                 break;
@@ -123,82 +133,219 @@
 
 
 
-    on('clicked:roll_profil', () => {
-        let dice = rollDice();
-        let profil;
+    on('clicked:roll_profile', () => {
+        let dice = rollDiceWithNumber(13);
+        let profile;
         let ame;
         let corps;
         let esprit;
         let combat;
-        let capacite_profil;
-        let competences_profil;
-        let equipement_profil;
-
+        let description_profile;
+        let citation_profile;
+        let capacite_profile;
+        let competences_profile;
+        let equipement_profile;
 
         switch(dice){
             case 1:
-                profil="Cobaye";
+                profile="Chasseur de primes";
                 ame=3;
-                corps=5;
-                esprit=2;
-                combat=3;
-                capacite_profil="Particulièrement résistant, reste en vie à 0 point de Corps et meurt à -1 (une fois par partie).";
-                competences_profil="Survie.";
-                equipement_profil="";
-                break;
-            case 2:
-                profil="Étudiant";
-                ame=5;
                 corps=3;
                 esprit=3;
-                combat=2;
-                capacite_profil="Peut poser 1D6 questions par partie (réponse fermée où la Comtesse ne peut répondre que par oui ou non).";
-                competences_profil="Lire & écrire,Observation,Connaissances théoriques médicales.";
-                equipement_profil="Grimoires vierges,Plume et encrier.";
+                combat=4;
+                description_profile="Sinistre et précis, le chasseur de primes se spécialise dans le ciblage d'un seul ennemi pour lui livrer sa tête en échange de la récompense. Il a découvert que le simple fait de frapper avant de réfléchir est un moyen inefficace de tuer. Il a donc appris lui-même de nombreuses façons de tirer parti des vulnérabilités de son ennemi."
+                citation_profile="Le frisson de la chasse... La promesse du paiement...";
+                capacite_profile="Une fois par partie, le chasseur de primes peut prendre une demi-journée pour préparer une traque contre un ennemi en particulier. Il a alors avantage a tous les jets pour chasser et combattre cet ennemi.";
+                competences_profile="Traque, Survie, Execution";
+                equipement_profile="Hache d'arme, Grappin, 2 grenades aveuglante";
                 break;
-            case 3:
-            case 4:
-                profil="Professeur";
-                ame=4;
-                corps=3;
-                esprit=4;
-                combat=2;
-                capacite_profil="Peut sacrifier 1 point de Corps pour obtenir une réussite, une fois par partie.";
-                competences_profil="Lire & écrire,Baratinage,Connaissances pratiques médicales.";
-                equipement_profil="Carnet de notes,Plume et encrier.";
-                break;
-            case 5:
-                profil="Expert";
-                ame=3;
-                corps=3;
-                esprit=5;
-                combat=2;
-                capacite_profil="Particulièrement sûr de lui, peut ignorer une Réaction au stress, une fois partie.";
-                competences_profil="Lire & écrire,Sait tout ou presque,Connaissances pratiques médicales.";
-                equipement_profil="Encyclopédies";
-                break;
-            case 6:
-                profil="Indépendant";
+
+            case 2:
+                profile="Croisé";
                 ame=4;
                 corps=3;
                 esprit=2;
                 combat=4;
-                capacite_profil="Une fois par partie, peut décider de changer l’issue d’un combat que la Comtesse vient de décrire (à l’exception du combat final).";
-                competences_profil="Débrouillardise,Connaissances médicales.";
-                equipement_profil="Rapière.";
+                description_profile="Champion de toute cause juste, le Croisé est un héros qui rassemble les hommes autour d'une cause droite et les mène à la victoire. Armé de sa lame sacrée, il frappe les créatures impies et les renvoie dans les ténèbres d'où elles viennent. "
+                citation_profile="Puisse la lumière de Solaria guider mon épée !";
+                capacite_profile="Une fois par partie, le croisé peut invoquer la bénédiction de Solaria pour augmenter sa protection et attirer l'attention des ennemis sur lui-même.";
+                competences_profile="Foi, Cri inspirant, Soin de bataille";
+                equipement_profile="Insigne de Solaria, Grande épée, Armure de mailles";
+                break;
+
+            case 3:
+                profile="Pilleur de tombe";
+                ame=4;
+                corps=3;
+                esprit=4;
+                combat=2;
+                description_profile=""
+                citation_profile="Pour ceux qui ont un œil avisé, l'or brille comme la pointe d'une dague.";
+                capacite_profile="Un fois par partie, le pilleur de tombe peut se camoufler parmi les ombres et devenir indétectable par les ennemis.";
+                competences_profile="Pillage";
+                equipement_profile="Pioche, Dard empoisonné, Dagues";
+                break;
+
+            case 4:
+                profile="Hellion";
+                ame=4;
+                corps=3;
+                esprit=2;
+                combat=4;
+                description_profile=""
+                citation_profile="";
+                capacite_profile="";
+                competences_profile="";
+                equipement_profile="";
+                break;
+
+            case 5:
+                profile="Bandit de grands chemins";
+                ame=4;
+                corps=3;
+                esprit=2;
+                combat=4;
+                description_profile=""
+                citation_profile="";
+                capacite_profile="";
+                competences_profile="";
+                equipement_profile="";
+                break;
+
+            case 6:
+                profile="Maître chien";
+                ame=4;
+                corps=3;
+                esprit=2;
+                combat=4;
+                description_profile=""
+                citation_profile="";
+                capacite_profile="";
+                competences_profile="";
+                equipement_profile="";
+                break;
+
+            case 7:
+                profile="Bouffon";
+                ame=4;
+                corps=3;
+                esprit=2;
+                combat=4;
+                description_profile=""
+                citation_profile="";
+                capacite_profile="";
+                competences_profile="";
+                equipement_profile="";
+                break;
+                
+            case 8:
+                profile="Lepreux";
+                ame=4;
+                corps=3;
+                esprit=2;
+                combat=4;
+                description_profile=""
+                citation_profile="";
+                capacite_profile="";
+                competences_profile="";
+                equipement_profile="";
+                break;
+
+            case 9:
+                profile="Homme d'armes";
+                ame=4;
+                corps=3;
+                esprit=2;
+                combat=4;
+                description_profile=""
+                citation_profile="";
+                capacite_profile="";
+                competences_profile="";
+                equipement_profile="";
+                break;                
+
+            case 10:
+                profile="Mousquetaire";
+                ame=4;
+                corps=3;
+                esprit=2;
+                combat=4;
+                description_profile=""
+                citation_profile="";
+                capacite_profile="";
+                competences_profile="";
+                equipement_profile="";
+                break;                
+
+            case 11:
+                profile="Occultiste";
+                ame=4;
+                corps=3;
+                esprit=2;
+                combat=4;
+                description_profile=""
+                citation_profile="";
+                capacite_profile="";
+                competences_profile="";
+                equipement_profile="";
+                break;   
+
+            case 12:
+                profile="Docteur de la peste";
+                ame=4;
+                corps=3;
+                esprit=2;
+                combat=4;
+                description_profile=""
+                citation_profile="";
+                capacite_profile="";
+                competences_profile="";
+                equipement_profile="";
+                break;  
+
+            case 13:
+                profile="Vestale";
+                ame=4;
+                corps=3;
+                esprit=2;
+                combat=4;
+                description_profile=""
+                citation_profile="";
+                capacite_profile="";
+                competences_profile="";
+                equipement_profile="";
+                break;  
+
+            default:
+                profile="Indépendant";
+                ame=4;
+                corps=3;
+                esprit=2;
+                combat=4;
+                description_profile="Sinistre et précis, le chasseur de primes se spécialise dans le ciblage d'un seul ennemi pour lui livrer sa tête en échange de la récompense. Il a découvert que le simple fait de frapper avant de réfléchir est un moyen inefficace de tuer. Il a donc appris lui-même de nombreuses façons de tirer parti des vulnérabilités de son ennemi."
+                citation_profile="Le frisson de la chasse... La promesse de paiement...";
+                capacite_profile="Une fois par partie, peut décider de changer l’issue d’un combat que la Comtesse vient de décrire (à l’exception du combat final).";
+                competences_profile="Débrouillardise,Connaissances médicales.";
+                equipement_profile="Rapière.";
                 break;
         }
+
+        console.log("roll profile : ", dice);
+        console.log("profile : ", profile);
         
         setAttrs({
-            profil: profil,
+            profile: profile,
             ame: ame,
             corps: corps,
             esprit: esprit,
             combat: combat,
-            capacite_profil: capacite_profil,
-            competences_profil: competences_profil,
-            equipement_profil: equipement_profil
+            description_profile: description_profile,
+            citation_profile: citation_profile,
+            capacite_profile: capacite_profile,
+            competences_profil: competences_profile,
+            equipement_profile: equipement_profile
         });
+        
     });
 
 
@@ -218,11 +365,11 @@
                 equipement_specialisation="Chapelet,Bible de Solaria,Fouet épineux.";
                 break;
             case 2:
-                specialisation="Hypnotiseur";
-                capacite_specialisation="Permet à une personne (lui ou quelqu’un d’autre) de permuter définitivement ses niveaux de Caractéristiques en cours, une fois par partie.";
-                competences_specialisation="Résistance à la domination mentale,Psychologie.";
-                equipement_specialisation="Pendule.";
-                break;
+            specialisation="Hypnotiseur";
+            capacite_specialisation="Permet à une personne (lui ou quelqu’un d’autre) de permuter définitivement ses niveaux de Caractéristiques en cours, une fois par partie.";
+            competences_specialisation="Résistance à la domination mentale,Psychologie.";
+            equipement_specialisation="Pendule.";
+            break;
             case 3:
                 specialisation="Maitre-animal";
                 capacite_specialisation="Peut appeler ses animaux dressés (chiens, corbeaux, rats, au choix à la création) pour l’aider durant une scène. L’ensemble des animaux possède 4 points à répartir entre Corps et Combat. Exemples : peut donc constituer en une multitude de rats à 3 en Esprit et 1 en Combat, un énorme dogue à 3 en Corps et 1 en Combat, une nuée de corbeaux à 2 en Corps et 2 en Combat.";
@@ -351,6 +498,7 @@
             </div>
             <button class="random_button" type="action" name="act_roll_nom">Tirer</button>
         </div>
+        "<i><span name="attr_citation_profile" value=""></span></i>"
         <div class="attribut">
             <div class="attribut_double">
                 <h3 class="attribute_name">Genre : </h3>
@@ -372,11 +520,12 @@
         </div>
         <div class="attribut">
             <div class="attribut_double">
-                <h3 class="attribute_name">profil : </h3>
-                <span class="attribute_value" name="attr_profil"></span>
+                <h3 class="attribute_name">profile : </h3>
+                <span class="attribute_value" name="attr_profile"></span>
             </div>
-            <button class="random_button" type="action" name="act_roll_profil">Tirer</button>
+            <button class="random_button" type="action" name="act_roll_profile">Tirer</button>
         </div>
+        <span name="attr_description_profile" value=""></span>
         <div class="attribut">
             <div class="attribut_double">
                 <h3 class="attribute_name">Spécialisation : </h3>
@@ -430,26 +579,17 @@
     </div>
     <div class="bloc">
         <h1>Compétences</h1>
-        <span name="attr_competences_profil" value=""></span><br />
+        <span name="attr_competences_profile" value=""></span><br />
         <span name="attr_competences_specialisation" value=""></span>
     </div>
     <div class="bloc">
         <h1>Capacités</h1>
-        <span name="attr_capacite_profil" value=""></span><br />
+        <span name="attr_capacite_profile" value=""></span><br />
         <span name="attr_capacite_specialisation" value=""></span>
     </div>
     <div class="bloc">
         <h1>Equipement</h1>
-        <span>chapeau<br />
-            bec de médecin caractéristique<br />
-            paire de lunettes protectrices en verre<br />
-            tunique de toile cirée<br />
-            long manteau de cuir<br />
-            épée courte<br />
-            besace, sac ou paquetage contenant des outils de médecine (baguette, clystère, lame pour la saignée,
-            etc.)<br />
-            quelques fioles et décoctions (dont de la thériaque, contrepoison romain)</span><br />
-        <span name="attr_equipement_profil" value=""></span><br />
+        <span name="attr_equipement_profile" value=""></span><br />
         <span name="attr_equipement_specialisation" value=""></span>
     </div>
 </div>
