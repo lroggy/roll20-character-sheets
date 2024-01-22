@@ -134,7 +134,7 @@
 
 
     on('clicked:roll_profile', () => {
-        let dice = rollDiceWithNumber(13);
+        let dice = rollDiceWithNumber(1);
         let profile;
         let ame;
         let corps;
@@ -182,21 +182,21 @@
                 description_profile=""
                 citation_profile="Pour ceux qui ont un œil avisé, l'or brille comme la pointe d'une dague.";
                 capacite_profile="Un fois par partie, le pilleur de tombe peut se camoufler parmi les ombres et devenir indétectable par les ennemis.";
-                competences_profile="Pillage";
+                competences_profile="Pillage, Investigation";
                 equipement_profile="Pioche, Dard empoisonné, Dagues";
                 break;
 
             case 4:
                 profile="Hellion";
-                ame=4;
-                corps=3;
+                ame=2;
+                corps=5;
                 esprit=2;
                 combat=4;
-                description_profile=""
+                description_profile="Sauvage, imprévisible et absolument impitoyable, l'Hellion s'épanouit dans l'effusion de sang ! Armée de sa hallebarde massive, elle offre une portée impressionnante au combat, tandis que son tranchant acéré laisse des blessures durables sur ses ennemis."
                 citation_profile="";
-                capacite_profile="";
-                competences_profile="";
-                equipement_profile="";
+                capacite_profile="Peut sacrifier 1 point de corps pour terrasser 3 ennemis.";
+                competences_profile="Coup puissant, Cris de combat";
+                equipement_profile="Grande hallebarde, Cuir et fourrures";
                 break;
 
             case 5:
@@ -316,6 +316,45 @@
                 equipement_profile="";
                 break;  
 
+            case 14:
+                profile="Antiquaire";
+                ame=4;
+                corps=3;
+                esprit=2;
+                combat=4;
+                description_profile=""
+                citation_profile="";
+                capacite_profile="";
+                competences_profile="";
+                equipement_profile="";
+                break;    
+
+            case 14:
+                profile="Arbalétrier";
+                ame=4;
+                corps=3;
+                esprit=2;
+                combat=4;
+                description_profile=""
+                citation_profile="";
+                capacite_profile="";
+                competences_profile="";
+                equipement_profile="";
+                break;  
+
+            case 14:
+                profile="Abomination";
+                ame=4;
+                corps=3;
+                esprit=2;
+                combat=4;
+                description_profile=""
+                citation_profile="";
+                capacite_profile="";
+                competences_profile="";
+                equipement_profile="";
+                break;  
+
             default:
                 profile="Indépendant";
                 ame=4;
@@ -365,14 +404,14 @@
                 equipement_specialisation="Chapelet,Bible de Solaria,Fouet épineux.";
                 break;
             case 2:
-            specialisation="Hypnotiseur";
-            capacite_specialisation="Permet à une personne (lui ou quelqu’un d’autre) de permuter définitivement ses niveaux de Caractéristiques en cours, une fois par partie.";
-            competences_specialisation="Résistance à la domination mentale,Psychologie.";
-            equipement_specialisation="Pendule.";
-            break;
+                specialisation="Hypnotiseur";
+                capacite_specialisation="Permet à une personne (lui ou quelqu’un d’autre) de permuter définitivement ses niveaux de Caractéristiques en cours, une fois par partie.";
+                competences_specialisation="Résistance à la domination mentale,Psychologie.";
+                equipement_specialisation="Pendule.";
+                break;
             case 3:
                 specialisation="Maitre-animal";
-                capacite_specialisation="Peut appeler ses animaux dressés (chiens, corbeaux, rats, au choix à la création) pour l’aider durant une scène. L’ensemble des animaux possède 4 points à répartir entre Corps et Combat. Exemples : peut donc constituer en une multitude de rats à 3 en Esprit et 1 en Combat, un énorme dogue à 3 en Corps et 1 en Combat, une nuée de corbeaux à 2 en Corps et 2 en Combat.";
+                capacite_specialisation="Peut appeler ses animaux dressés (chiens, corbeaux, rats, au choix à la création) pour l’aider durant une scène. L’ensemble des animaux possède 5 points à répartir entre Corps, Esprit et Hargne. Exemples : peut donc constituer en une multitude de rats à 2 en Corps, 1 en Esprit et 2 en Hargne, un énorme dogue à 3 en Corps, 1 en Esprit et 1 en Hargne, une nuée de corbeaux à 2 en Corps, 2 en Esprit et 1 en Hargne.";
                 competences_specialisation="Connaissances des animaux,Dressage.";
                 equipement_specialisation="Nourriture (pour animaux),Sifflet (pour appeler le ou les animaux).";
                 break;
