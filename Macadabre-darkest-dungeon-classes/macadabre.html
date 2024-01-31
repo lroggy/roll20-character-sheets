@@ -131,10 +131,8 @@
         });
     });
 
-
-
     on('clicked:roll_profile', () => {
-        let dice = rollDiceWithNumber(1);
+        let dice = rollDiceWithNumber(16);
         let profile;
         let ame;
         let corps;
@@ -153,20 +151,19 @@
                 corps=3;
                 esprit=3;
                 combat=4;
-                description_profile="Sinistre et précis, le chasseur de primes se spécialise dans le ciblage d'un seul ennemi pour lui livrer sa tête en échange de la récompense. Il a découvert que le simple fait de frapper avant de réfléchir est un moyen inefficace de tuer. Il a donc appris lui-même de nombreuses façons de tirer parti des vulnérabilités de son ennemi."
+                description_profile="Sinistre et précis, le chasseur de primes se spécialise dans le ciblage d'un seul ennemi pour lui livrer sa tête en échange de la récompense. Il a découvert que le simple fait de frapper avant de réfléchir est un moyen inefficace de tuer. Il a donc appris lui-même de nombreuses façons de tirer parti des vulnérabilités de son ennemi.";
                 citation_profile="Le frisson de la chasse... La promesse du paiement...";
                 capacite_profile="Une fois par partie, le chasseur de primes peut prendre une demi-journée pour préparer une traque contre un ennemi en particulier. Il a alors avantage a tous les jets pour chasser et combattre cet ennemi.";
                 competences_profile="Traque, Survie, Execution";
                 equipement_profile="Hache d'arme, Grappin, 2 grenades aveuglante";
                 break;
-
             case 2:
                 profile="Croisé";
                 ame=4;
                 corps=3;
                 esprit=2;
                 combat=4;
-                description_profile="Champion de toute cause juste, le Croisé est un héros qui rassemble les hommes autour d'une cause droite et les mène à la victoire. Armé de sa lame sacrée, il frappe les créatures impies et les renvoie dans les ténèbres d'où elles viennent. "
+                description_profile="Champion de toute cause juste, le Croisé est un héros qui rassemble les hommes autour d'une cause droite et les mène à la victoire. Armé de sa lame sacrée, il frappe les créatures impies et les renvoie dans les ténèbres d'où elles viennent.";
                 citation_profile="Puisse la lumière de Solaria guider mon épée !";
                 capacite_profile="Une fois par partie, le croisé peut invoquer la bénédiction de Solaria pour augmenter sa protection et attirer l'attention des ennemis sur lui-même.";
                 competences_profile="Foi, Cri inspirant, Soin de bataille";
@@ -179,7 +176,7 @@
                 corps=3;
                 esprit=4;
                 combat=2;
-                description_profile=""
+                description_profile="";
                 citation_profile="Pour ceux qui ont un œil avisé, l'or brille comme la pointe d'une dague.";
                 capacite_profile="Un fois par partie, le pilleur de tombe peut se camoufler parmi les ombres et devenir indétectable par les ennemis.";
                 competences_profile="Pillage, Investigation";
@@ -192,85 +189,84 @@
                 corps=5;
                 esprit=2;
                 combat=4;
-                description_profile="Sauvage, imprévisible et absolument impitoyable, l'Hellion s'épanouit dans l'effusion de sang ! Armée de sa hallebarde massive, elle offre une portée impressionnante au combat, tandis que son tranchant acéré laisse des blessures durables sur ses ennemis."
-                citation_profile="";
-                capacite_profile="Peut sacrifier 1 point de corps pour terrasser 3 ennemis.";
-                competences_profile="Coup puissant, Cris de combat";
-                equipement_profile="Grande hallebarde, Cuir et fourrures";
+                description_profile="Sauvage, imprévisible et absolument impitoyable, l'Hellion s'épanouit dans l'effusion de sang ! Armée de sa hallebarde massive, elle offre une portée impressionnante au combat, tandis que son tranchant acéré laisse des blessures durables sur ses ennemis.";
+                citation_profile="Je me bats pour l'honneur perdu, dans l'ombre de la honte.";
+                capacite_profile="Peut sacrifier 1 point de corps pour terrasser 2 ennemis.";
+                competences_profile="Coup puissant, Cris de combat, Fureur au combat,";
+                equipement_profile="Grande hallebarde, Cuir et fourrures, Talismans tribaux";
                 break;
 
             case 5:
                 profile="Bandit de grands chemins";
-                ame=4;
-                corps=3;
-                esprit=2;
-                combat=4;
-                description_profile=""
+                ame=3;
+                corps=2;
+                esprit=4;
+                combat=2;
+                description_profile="";
                 citation_profile="";
                 capacite_profile="";
-                competences_profile="";
-                equipement_profile="";
+                competences_profile="Chapardage, Attaque sournoise";
+                equipement_profile="Arme à Silex";
                 break;
 
             case 6:
                 profile="Maître chien";
-                ame=4;
-                corps=3;
-                esprit=2;
-                combat=4;
-                description_profile=""
+                ame=1;
+                corps=1;
+                esprit=1;
+                combat=1;
+                description_profile="";
                 citation_profile="";
                 capacite_profile="";
                 competences_profile="";
-                equipement_profile="";
+                equipement_profile="Chien Apprivoisé (Corps 3, Esprit 1, Combat 3)";
                 break;
 
             case 7:
                 profile="Bouffon";
-                ame=4;
-                corps=3;
-                esprit=2;
-                combat=4;
-                description_profile=""
-                citation_profile="";
-                capacite_profile="";
-                competences_profile="";
-                equipement_profile="";
+                âme=3;
+                corps=2;
+                esprit=4;
+                combat=2;
+                description_profile="Artiste de rue devenu bouffon de la cour, il trouve son salut dans la musique et la performance, malgré les humiliations et les épreuves.";
+                citation_profile="Sous mon masque, un sourire ou une larme ?";
+                capacité_profile="Utilise sa musique pour affronter les adversaires et exprimer ses émotions complexes.";
+                compétences_profile="Duel musical, Miroir des notes, Performance solo";
+                equipement_profile="Violon, Masque de bouffon, Cape colorée";
                 break;
                 
             case 8:
-                profile="Lepreux";
-                ame=4;
+                profile="Lépreux";
+                âme=4;
                 corps=3;
                 esprit=2;
                 combat=4;
-                description_profile=""
-                citation_profile="";
-                capacite_profile="";
-                competences_profile="";
-                equipement_profile="";
+                description_profile="Le Lépreux est un guerrier stoïque, marqué par la maladie et l'exil. Malgré sa force et son courage, il porte le fardeau de sa condition avec dignité.";
+                citation_profile="Même dans la maladie, la force demeure.";
+                capacité_profile="Capable de résister aux attaques stressantes des adversaires et de se frayer un chemin à travers eux avec détermination.";
+                compétences_profile="Avancée royale, Embrassement, Soulagement du stress, Frappe puissante";
+                equipement_profile="Épée de roi, Armure royale délabrée, Insigne de la royauté";
                 break;
 
             case 9:
                 profile="Homme d'armes";
-                ame=4;
-                corps=3;
+                âme=3;
+                corps=4;
                 esprit=2;
                 combat=4;
-                description_profile=""
-                citation_profile="";
-                capacite_profile="";
-                competences_profile="";
-                equipement_profile="";
-                break;                
+                description_profile="Soldat chevronné, élevé aux plus hauts rangs par son intelligence et son ambition, mais tourmenté par les horreurs de la guerre.";
+                citation_profile="L'honneur et le devoir, toujours, même dans l'ombre de la peur.";
+                capacité_profile="Dirige ses troupes avec expérience et courage, tout en luttant contre ses démons intérieurs.";
+                compétences_profile="Commandement, Stratégie, Combat au corps à corps";
+                equipement_profile="Épée et bouclier, Armure lourde, Insigne de commandement";
 
             case 10:
                 profile="Mousquetaire";
-                ame=4;
-                corps=3;
-                esprit=2;
-                combat=4;
-                description_profile=""
+                ame=1;
+                corps=1;
+                esprit=1;
+                combat=1;
+                description_profile="";
                 citation_profile="";
                 capacite_profile="";
                 competences_profile="";
@@ -279,36 +275,36 @@
 
             case 11:
                 profile="Occultiste";
-                ame=4;
-                corps=3;
-                esprit=2;
-                combat=4;
-                description_profile=""
-                citation_profile="";
-                capacite_profile="";
-                competences_profile="";
-                equipement_profile="";
+                âme=2;
+                corps=2;
+                esprit=5;
+                combat=3;
+                description_profile="Chercheur du paranormal et du mystique, il est constamment attiré par l'inconnu, malgré les dangers et les horreurs qu'il rencontre.";
+                citation_profile="Dans les ténèbres, je cherche la lumière interdite.";
+                capacité_profile="Maîtrise de l'occulte et du surnaturel, capable de manipuler les forces au-delà de la compréhension.";
+                compétences_profile="Rituels, Exploration des arcanes, Combat contre l'obscur";
+                equipement_profile="Grimoire ancien, Amulettes mystiques, Robe cérémoniale";
                 break;   
 
             case 12:
                 profile="Docteur de la peste";
-                ame=4;
-                corps=3;
-                esprit=2;
-                combat=4;
-                description_profile=""
-                citation_profile="";
-                capacite_profile="";
-                competences_profile="";
-                equipement_profile="";
-                break;  
+                âme=3;
+                corps=2;
+                esprit=4;
+                combat=2;
+                description_profile="Érudite et controversée, elle cherche la vérité derrière la science et la médecine, parfois de manière éthiquement douteuse.";
+                citation_profile="La connaissance est un fardeau que je porte volontiers.";
+                capacité_profile="Capable de manipuler des substances dangereuses et de mener des expériences audacieuses.";
+                compétences_profile="Expérimentation, Recherche scientifique, Dissection";
+                equipement_profile="Masque de médecin, Fioles de potions, Scalpel";
+                break;
 
             case 13:
                 profile="Vestale";
-                ame=4;
-                corps=3;
-                esprit=2;
-                combat=4;
+                ame=1;
+                corps=1;
+                esprit=1;
+                combat=1;
                 description_profile=""
                 citation_profile="";
                 capacite_profile="";
@@ -318,10 +314,10 @@
 
             case 14:
                 profile="Antiquaire";
-                ame=4;
-                corps=3;
-                esprit=2;
-                combat=4;
+                ame=1;
+                corps=1;
+                esprit=1;
+                combat=1;
                 description_profile=""
                 citation_profile="";
                 capacite_profile="";
@@ -329,12 +325,12 @@
                 equipement_profile="";
                 break;    
 
-            case 14:
+            case 15:
                 profile="Arbalétrier";
-                ame=4;
-                corps=3;
-                esprit=2;
-                combat=4;
+                ame=1;
+                corps=1;
+                esprit=1;
+                combat=1;
                 description_profile=""
                 citation_profile="";
                 capacite_profile="";
@@ -342,30 +338,17 @@
                 equipement_profile="";
                 break;  
 
-            case 14:
+            case 16:
                 profile="Abomination";
-                ame=4;
-                corps=3;
-                esprit=2;
-                combat=4;
+                ame=1;
+                corps=1;
+                esprit=1;
+                combat=1;
                 description_profile=""
                 citation_profile="";
                 capacite_profile="";
                 competences_profile="";
                 equipement_profile="";
-                break;  
-
-            default:
-                profile="Indépendant";
-                ame=4;
-                corps=3;
-                esprit=2;
-                combat=4;
-                description_profile="Sinistre et précis, le chasseur de primes se spécialise dans le ciblage d'un seul ennemi pour lui livrer sa tête en échange de la récompense. Il a découvert que le simple fait de frapper avant de réfléchir est un moyen inefficace de tuer. Il a donc appris lui-même de nombreuses façons de tirer parti des vulnérabilités de son ennemi."
-                citation_profile="Le frisson de la chasse... La promesse de paiement...";
-                capacite_profile="Une fois par partie, peut décider de changer l’issue d’un combat que la Comtesse vient de décrire (à l’exception du combat final).";
-                competences_profile="Débrouillardise,Connaissances médicales.";
-                equipement_profile="Rapière.";
                 break;
         }
 
@@ -561,8 +544,27 @@
             <div class="attribut_double">
                 <h3 class="attribute_name">profile : </h3>
                 <span class="attribute_value" name="attr_profile"></span>
+                <!-- <select class="attribute_value" name="attr_profile">
+                    <option value="Chasseur de primes">Chasseur de primes</option>
+                    <option value="Croisé">Croisé</option>
+                    <option value="Pilleur de tombe">Pilleur de tombe</option>
+                    <option value="Hellion">Hellion</option>
+                    <option value="Bandit de grands chemins">Bandit de grands chemins</option>
+                    <option value="Maître chien">Maître chien</option>
+                    <option value="Bouffon">Bouffon</option>
+                    <option value="Lepreux">Lepreux</option>
+                    <option value="Homme d'armes">Homme d'armes</option>
+                    <option value="Mousquetaire">Mousquetaire</option>
+                    <option value="Occultiste">Occultiste</option>
+                    <option value="Docteur de la peste">Docteur de la peste</option>
+                    <option value="Vestale">Vestale</option>
+                    <option value="Antiquaire">Antiquaire</option>
+                    <option value="Arbalétrier">Arbalétrier</option>
+                    <option value="Abomination">Abomination</option>
+                </select> -->
             </div>
             <button class="random_button" type="action" name="act_roll_profile">Tirer</button>
+            <!-- <button class="random_button" type="action" name="act_roll_profile">Rafraichir page</button> -->
         </div>
         <span name="attr_description_profile" value=""></span>
         <div class="attribut">
