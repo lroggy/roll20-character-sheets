@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.fiche-suivi {
+    width: 210mm; /* A4 width */
+    height: 297mm; /* A4 height */
+    padding: 10mm;
+    box-sizing: border-box;
+    position: relative;
+    background-color: white;
+    border: 1px solid #333;
+}
+
+.header {
+    text-align: center;
+    border-bottom: 2px solid #333;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.header span {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    width: 48%;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.cercles {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cercle {
+    width: 70px;
+    height: 70px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 10px 0;
+}
+
+.cercle .max {
+    position: absolute;
+    bottom: -20px;
+    font-size: 0.8em;
+    color: #333;
+}
+
+.cercle-input {
+    width: 60px;
+    height: 60px;
+    border: none;
+    text-align: center;
+    font-size: 1em;
+    border-radius: 50%;
+    background: transparent;
+}
+
+.caracteristiques ul {
+    list-style: none;
+    padding: 0;
+}
+
+.caracteristiques li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.caracteristiques span {
+    width: 150px;
+    display: inline-block;
+}
+
+.barre {
+    width: 150px;
+    height: 20px;
+    border: 2px solid #333;
+    position: relative;
+    background-color: #ddd;
+    margin-right: 10px;
+}
+
+.expertise-box {
+    border: 2px solid #333;
+    height: 100px;
+    background-color: #f4f4f4;
+}
+
+.blessures {
+    margin-top: 20px;
+}
+
+.blessures .blessure-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #333;
+    padding: 5px 0;
+}
+
+.blessures .blessure-row div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.blessures .blessure-row div span {
+    width: 33%;
+    text-align: center;
+}
