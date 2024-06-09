@@ -1,87 +1,153 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiche de Suivi</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="fiche-suivi">
-        <div class="header">
-            <span>SHS - FICHE DE SUIVI DE</span>
-        </div>
-        <div class="content">
-            <div class="column left">
-                <div class="section sante">
+    <header>
+        <h1>SHS - FICHE DE SUIVI DE</h1>
+        <input type="text" class="header-input">
+    </header>
+    <div class="container">
+        <div class="main-content">
+            <div class="column">
+
+                <div class="section">
                     <h2>SANTÉ</h2>
-                    <div class="cercles">
-                        <div class="cercle">
-                            <input type="number" class="cercle-input">
-                        </div>
-                        <div class="cercle">
-                            <input type="number" class="cercle-input">
-                            <span class="max">MAX</span>
-                        </div>
-                    </div>
+                    <span style="margin: auto;"></span>
+                    <input type="number" class="circle-input">
+                    <span class="slash">/</span>
+                    <input type="number" class="circle-input">
                 </div>
-                <div class="section protection">
+
+                <div class="section">
                     <h2>PROTECTION</h2>
-                    <div class="cercles">
-                        <div class="cercle">
-                            <input type="number" class="cercle-input">
-                        </div>
-                        <div class="cercle">
-                            <input type="number" class="cercle-input">
-                            <span class="max">MAX</span>
-                        </div>
-                    </div>
+                    <input type="number" class="circle-input">
+                    <span class="slash">/</span>
+                    <input type="number" class="circle-input">
                 </div>
-                <div class="section air">
+                <div class="section">
                     <h2>AIR</h2>
-                    <div class="cercles">
-                        <div class="cercle">
-                            <input type="number" class="cercle-input">
-                        </div>
-                        <div class="cercle">
-                            <input type="number" class="cercle-input">
-                            <span class="max">MAX</span>
-                        </div>
-                    </div>
+                    <input type="number" class="circle-input">
+                    <span class="slash">/</span>
+                    <input type="number" class="circle-input">
                 </div>
             </div>
-            <div class="column right">
-                <div class="section caracteristiques">
+            <div class="column">
+                <div class="section">
                     <h2>CARACTÉRISTIQUES</h2>
-                    <ul>
-                        <li><span>CARRURE</span><div class="barre"></div><div class="cercle"><input type="number" class="cercle-input"></div></li>
-                        <li><span>MOTRICITÉ</span><div class="barre"></div><div class="cercle"><input type="number" class="cercle-input"></div></li>
-                        <li><span>SCIENCE</span><div class="barre"></div><div class="cercle"><input type="number" class="cercle-input"></div></li>
-                        <li><span>RELATIONNEL</span><div class="barre"></div><div class="cercle"><input type="number" class="cercle-input"></div></li>
-                        <li><span>SANG-FROID</span><div class="barre"></div><div class="cercle"><input type="number" class="cercle-input"></div></li>
-                    </ul>
+                    <div class="characteristics">
+                        <div class="characteristic-item">
+                            <label>CARRURE</label>
+                            <input type="number" class="carac-circle-input">
+                        </div>
+                        <div class="characteristic-item">
+                            <label>MOTRICITÉ</label>
+                            <input type="number" class="carac-circle-input">
+                        </div>
+                        <div class="characteristic-item">
+                            <label>SCIENCE</label>
+                            <input type="number" class="carac-circle-input">
+                        </div>
+                        <div class="characteristic-item">
+                            <label>RELATIONNEL</label>
+                            <input type="number" class="carac-circle-input">
+                        </div>
+                        <div class="characteristic-item">
+                            <label>SANG-FROID</label>
+                            <input type="number" class="carac-circle-input">
+                        </div>
+                    </div>
                 </div>
-                <div class="section expertises">
+                <div class="section">
                     <h2>EXPERTISES (D8 -> D10)</h2>
-                    <div class="expertise-box"></div>
+                    <textarea type="text" class="expertise-input" style="width: 90%;"/>
                 </div>
             </div>
         </div>
-        <div class="section blessures">
-            <h2>BLESSURES ET ÉTATS</h2>
-            <div class="blessure-row">
-                <div><span>Malus</span><span>IG</span></div>
-                <div><span>Dégât</span></div>
+        <div class="main-content">
+            <div class="section" style="width: 100%">
+                <h2>BLESSURES ET ÉTATS</h2>
+                <div class="column">
+                    <div class="injuries">
+                        <textarea style="width: 90%; height: 80%;"/>
+                        <label>Malus IG</label>
+                        <label>Dégât</label>
+                    </div>
+                    <div class="injuries">
+                        <label>Malus IG</label>
+                        <label>Dégât</label>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="injuries">
+                        <label>Malus IG</label>
+                        <label>Dégât</label>
+                    </div>
+                    <div class="injuries">
+                        <label>Malus IG</label>
+                        <label>Dégât</label>
+                    </div>
+                </div>
             </div>
-            <div class="blessure-row">
-                <div><span>Malus</span><span>IG</span></div>
-                <div><span>Dégât</span></div>
+
+            <div class="section">
+                <h2>ARMES</h2>
+                <table>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Impact</th>
+                        <th>Portée min/max</th>
+                        <th>Attributs</th>
+                        <th>Muni.</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                </table>
             </div>
-            <div class="blessure-row">
-                <div><span>Malus</span><span>IG</span></div>
-                <div><span>Dégât</span></div>
+            <div class="section">
+                <h2>NOTES & ÉQUIPEMENT</h2>
+                <textarea class="notes-input"></textarea>
             </div>
+            <div class="section">
+                <h2>RELATIONS</h2>
+                <div class="relations">
+                    <label>Ami(e) avec</label>
+                    <input type="text" class="rectangle-input">
+                    <label>Amoureux(se) de</label>
+                    <input type="text" class="rectangle-input">
+                    <label>Même famille que (préciser le lien)</label>
+                    <input type="text" class="rectangle-input">
+                    <label>Hostile envers</label>
+                    <input type="text" class="rectangle-input">
+                </div>
+            </div>
+
         </div>
     </div>
 </body>
+
 </html>
