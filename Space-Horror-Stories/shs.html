@@ -1,3 +1,11 @@
+<script type="text/worker">
+
+    on('clicked:roll_test', () => {
+
+    });
+</script>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -8,33 +16,34 @@
 </head>
 
 <body>
-    <header>
-        <h1>SHS - FICHE DE SUIVI DE</h1>
-        <input type="text" class="header-input">
-    </header>
     <div class="container">
+        <div class="main-content">
+        <div class="block">
+            <h1>Nom et Rôle</h1>
+            <input type="text" name="attr_name" class="header-input">
+        </div>
+        </div>
         <div class="main-content">
             <div class="column">
 
                 <div class="section">
                     <h2>SANTÉ</h2>
-                    <span style="margin: auto;"></span>
-                    <input type="number" class="circle-input">
+                    <input type="number" class="circle-input" name="attr_sante" min="0" max="20">
                     <span class="slash">/</span>
-                    <input type="number" class="circle-input">
+                    <input type="number" class="circle-input" name="attr_sante_max" min="0" max="20">
                 </div>
 
                 <div class="section">
                     <h2>PROTECTION</h2>
-                    <input type="number" class="circle-input">
+                    <input type="number" class="circle-input" name="attr_protection" min="0" max="20">
                     <span class="slash">/</span>
-                    <input type="number" class="circle-input">
+                    <input type="number" class="circle-input" name="attr_protection_max" min="0" max="20">
                 </div>
                 <div class="section">
                     <h2>AIR</h2>
-                    <input type="number" class="circle-input">
+                    <input type="number" class="circle-input" name="attr_air" min="0" max="20">
                     <span class="slash">/</span>
-                    <input type="number" class="circle-input">
+                    <input type="number" class="circle-input" name="attr_air_max" min="0" max="20">
                 </div>
             </div>
             <div class="column">
@@ -43,59 +52,122 @@
                     <div class="characteristics">
                         <div class="characteristic-item">
                             <label>CARRURE</label>
-                            <input type="number" class="carac-circle-input">
+                            <input type="number" class="carac-circle-input" name="attr_carrure" min="5" max="8">
+                            <button class="random_button" type="roll" value="/roll 3d8>@{carrure} + @{bonus}dF=1 - @{malus}dF=1"></button>
+                            <button class="random_button" type="roll" value="/roll 3d10>@{carrure} + @{bonus}dF=1 - @{malus}dF=1">Exp</button>
                         </div>
                         <div class="characteristic-item">
                             <label>MOTRICITÉ</label>
-                            <input type="number" class="carac-circle-input">
+                            <input type="number" class="carac-circle-input" name="attr_motricite" min="5" max="8">
+                            <button class="random_button" type="roll" value="/roll 3d8>@{motricite} + @{bonus}dF=1 - @{malus}dF=1"></button>
+                            <button class="random_button" type="roll" value="/roll 3d10>@{motricite} + @{bonus}dF=1 - @{malus}dF=1">Exp</button>
                         </div>
                         <div class="characteristic-item">
                             <label>SCIENCE</label>
-                            <input type="number" class="carac-circle-input">
+                            <input type="number" class="carac-circle-input" name="attr_science" min="5" max="8">
+                            <button class="random_button" type="roll" value="/roll 3d8>@{science} + @{bonus}dF=1 - @{malus}dF=1"></button>
+                            <button class="random_button" type="roll" value="/roll 3d10>@{science} + @{bonus}dF=1 - @{malus}dF=1">Exp</button>
                         </div>
                         <div class="characteristic-item">
                             <label>RELATIONNEL</label>
-                            <input type="number" class="carac-circle-input">
+                            <input type="number" class="carac-circle-input" name="attr_relationel" min="5" max="8">
+                            <button class="random_button" type="roll" value="/roll 3d8>@{relationel} + @{bonus}dF=1 - @{malus}dF=1"></button>
+                            <button class="random_button" type="roll" value="/roll 3d10>@{relationel} + @{bonus}dF=1 - @{malus}dF=1">Exp</button>
                         </div>
                         <div class="characteristic-item">
                             <label>SANG-FROID</label>
-                            <input type="number" class="carac-circle-input">
+                            <input type="number" class="carac-circle-input" name="attr_sangfroid" min="5" max="8">
+                            <button class="random_button" type="roll" value="/roll 3d8>@{sangfroid} + @{bonus}dF=1 - @{malus}dF=1"></button>
+                            <button class="random_button" type="roll" value="/roll 3d10>@{sangfroid} + @{bonus}dF=1 - @{malus}dF=1">Exp</button>
+                        </div>
+
+
+                        <div class="characteristic-item">
+                            <label>Bonus</label>
+                            <input type="number" min="0" max="5" class="carac-circle-input" name="attr_bonus">
+                            <label>Malus</label>
+                            <input type="number" min="0" max="5" class="carac-circle-input" name="attr_malus">
                         </div>
                     </div>
                 </div>
                 <div class="section">
                     <h2>EXPERTISES (D8 -> D10)</h2>
-                    <textarea type="text" class="expertise-input" style="width: 90%;"/>
+                    <textarea type="text" name="attr_expertises" class="expertise-input" style="width: 90%;"/>
                 </div>
             </div>
         </div>
         <div class="main-content">
             <div class="section" style="width: 100%">
                 <h2>BLESSURES ET ÉTATS</h2>
-                <div class="column">
+                <div class="column-section">
                     <div class="injuries">
-                        <textarea style="width: 90%; height: 80%;"/>
-                        <label>Malus IG</label>
-                        <label>Dégât</label>
+                        <textarea name="attr_blessures_1_desc" style="width: 95%; height: 90%;"/>
+                        <div class="block">
+                            <label>Malus</label>
+                            <input type="text" name="attr_blessures_1_malus">
+                        </div>
+                        <div class="block">
+                            <label>IG</label>
+                            <input type="text" name="attr_blessures_1_ig">
+                        </div>
+                        <div class="block">
+                            <label>Dégât</label>
+                            <input type="text" name="attr_blessures_1_deg">
+                        </div>
                     </div>
                     <div class="injuries">
-                        <label>Malus IG</label>
-                        <label>Dégât</label>
+                        <textarea name="attr_blessures_2_desc" style="width: 95%; height: 90%;"/>
+                        <div class="block">
+                            <label>Malus</label>
+                            <input type="text" name="attr_blessures_2_malus">
+                        </div>
+                        <div class="block">
+                            <label>IG</label>
+                            <input type="text" name="attr_blessures_2_ig">
+                        </div>
+                        <div class="block">
+                            <label>Dégât</label>
+                            <input type="text" name="attr_blessures_2_deg">
+                        </div>
                     </div>
                 </div>
-                <div class="column">
+                <div class="column-section">
                     <div class="injuries">
-                        <label>Malus IG</label>
-                        <label>Dégât</label>
+                        <textarea name="attr_blessures_3_desc" style="width: 95%; height: 90%;"/>
+                        <div class="block">
+                            <label>Malus</label>
+                            <input type="text" name="attr_blessures_3_malus">
+                        </div>
+                        <div class="block">
+                            <label>IG</label>
+                            <input type="text" name="attr_blessures_3_ig">
+                        </div>
+                        <div class="block">
+                            <label>Dégât</label>
+                            <input type="text" name="attr_blessures_3_deg">
+                        </div>
                     </div>
                     <div class="injuries">
-                        <label>Malus IG</label>
-                        <label>Dégât</label>
+                        <textarea name="attr_blessures_4_desc" style="width: 95%; height: 90%;"/>
+                        <div class="block">
+                            <label>Malus</label>
+                            <input type="text" name="attr_blessures_4_malus">
+                        </div>
+                        <div class="block">
+                            <label>IG</label>
+                            <input type="text" name="attr_blessures_4_ig">
+                        </div>
+                        <div class="block">
+                            <label>Dégât</label>
+                            <input type="text" name="attr_blessures_4_deg">
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="section">
+        </div>
+        <div class="main-content">
+            <div class="section" style="width: 95%">
                 <h2>ARMES</h2>
                 <table>
                     <tr>
@@ -106,43 +178,57 @@
                         <th>Muni.</th>
                     </tr>
                     <tr>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="attr_arme_1_nom"></td>
+                        <td><input type="text" name="attr_arme_1_impact"></td>
+                        <td><input type="text" name="attr_arme_1_portee"></td>
+                        <td><input type="text" name="attr_arme_1_attributs"></td>
+                        <td><input type="text" name="attr_arme_1_munitions"></td>
                     </tr>
                     <tr>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="attr_arme_2_nom"></td>
+                        <td><input type="text" name="attr_arme_2_impact"></td>
+                        <td><input type="text" name="attr_arme_2_portee"></td>
+                        <td><input type="text" name="attr_arme_2_attributs"></td>
+                        <td><input type="text" name="attr_arme_2_munitions"></td>
                     </tr>
                     <tr>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="attr_arme_3_nom"></td>
+                        <td><input type="text" name="attr_arme_3_impact"></td>
+                        <td><input type="text" name="attr_arme_3_portee"></td>
+                        <td><input type="text" name="attr_arme_3_attributs"></td>
+                        <td><input type="text" name="attr_arme_3_munitions"></td>
                     </tr>
                 </table>
             </div>
-            <div class="section">
+
+        </div>
+        <div class="main-content">
+
+            <div class="section" style="width: 100%">
                 <h2>NOTES & ÉQUIPEMENT</h2>
-                <textarea class="notes-input"></textarea>
+                <textarea type="text" name="attr_notes" class="notes-input" style="width: 95%;"/>
             </div>
-            <div class="section">
+        </div>
+        <div class="main-content">
+            <div class="section" style="width: 100%">
                 <h2>RELATIONS</h2>
                 <div class="relations">
-                    <label>Ami(e) avec</label>
-                    <input type="text" class="rectangle-input">
-                    <label>Amoureux(se) de</label>
-                    <input type="text" class="rectangle-input">
-                    <label>Même famille que (préciser le lien)</label>
-                    <input type="text" class="rectangle-input">
-                    <label>Hostile envers</label>
-                    <input type="text" class="rectangle-input">
+                    <div class="block">
+                        <label>Ami(e) avec</label>
+                        <input type="text" name="relation_1" class="rectangle-input">
+                    </div>
+                    <div class="block">
+                        <label>Amoureux(se) de</label>
+                        <input type="text" name="relation_2" class="rectangle-input">
+                    </div>
+                    <div class="block">
+                        <label>Même famille que (préciser le lien)</label>
+                        <input type="text" name="relation_3" class="rectangle-input">
+                    </div>
+                    <div class="block">
+                        <label>Hostile envers</label>
+                        <input type="text" name="relation_4" class="rectangle-input">
+                    <div class="block">
                 </div>
             </div>
 
