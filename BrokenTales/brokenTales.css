@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Libre+Baskerville&display=swap');
+
+
+/************ Base page ************/
+.sheet-page {
+  --ink: #0b0b0b;
+  --line: #111;
+  --gray: #5a5a5a;
+  --accent: #0b0b0b;
+  font-family: 'Libre Baskerville', Georgia, serif;
+  color: var(--ink);
+  position: relative;
+  width: 920px;
+  /* proche du ratio de ton image */
+  min-height: 1160px;
+  padding: 20px 22px 120px 22px;
+  /* bas laissé pour les cercles */
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #000;
+}
+
+/************ Header ************/
+.sheet-header {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 16px;
+  display: grid;
+  grid-template-columns: 46% 54%;
+  gap: 12px;
+  align-items: start;
+}
+
+.sheet-header-left .sheet-label {
+  font-family: 'UnifrakturCook', 'Libre Baskerville', serif;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  margin-bottom: 6px;
+}
+.sheet-header-right .sheet-label {
+  font-family: 'UnifrakturCook', 'Libre Baskerville', serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sheet-title-logo {
+  font-family: "UnifrakturCook", Georgia, serif;
+  font-size: 46px;
+  line-height: .92;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.sheet-block {
+  display: block;
+}
+
+.sheet-inline {
+  font-family: 'UnifrakturCook', 'Libre Baskerville', serif;
+  display: block;
+  margin: 6px 0;
+}
+
+/************ Inputs style “ligne” ************/
+.sheet-line {
+  font-family: 'Libre Baskerville', serif;
+  flex: 1;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid var(--line);
+  padding: 2px 4px 3px 4px;
+  background: transparent;
+  font-size: 14px;
+}
+
+.sheet-ruled-one {
+  font-family: 'Libre Baskerville', serif;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  padding: 2px 4px 3px 4px;
+  background: transparent;
+  font-size: 14px;
+  --line: rgba(0, 0, 0, 0.3);
+}
+
+.sheet-ruled {
+  width: 100%;
+  border: none;
+  background:
+    repeating-linear-gradient(to bottom,
+      transparent 0 22px,
+      var(--line) 22px 23px);
+  padding: 4px 6px;
+  line-height: 23px;
+  resize: vertical;
+  resize: vertical;
+  font-size: 14px;
+  height: 36px;
+  /* ✅ taille par défaut plus petite */
+  --line: rgba(0, 0, 0, 0.3);
+
+}
+
+/************ Divider ************/
+.sheet-divider {
+  font-family: 'UnifrakturCook', 'Libre Baskerville', serif;
+  margin: 14px 0 10px 0;
+  border-top: 3px solid var(--ink);
+  position: relative;
+  text-align: center;
+}
+
+.sheet-divider span {
+  position: relative;
+  top: -12px;
+  background: #fff;
+  padding: 0 8px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.sheet-divider.small span {
+  font-size: 16px;
+  top: -11px;
+}
+
+/************ Layout 2 colonnes ************/
+.sheet-two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.sheet-col {
+  min-height: 300px;
+}
+
+/************ Descripteur + Don ************/
+.sheet-descriptor {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.sheet-descriptor-body .sheet-label-sm {
+  font-family: 'UnifrakturCook', 'Libre Baskerville', serif;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.sheet-block .sheet-label-sm {
+  font-family: 'UnifrakturCook', 'Libre Baskerville', serif;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.mt6 {
+  margin-top: 6px;
+}
+
+.mt8 {
+  margin-top: 8px;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.mt12 {
+  margin-top: 12px;
+}
+
+.mt16 {
+  margin-top: 16px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+/* Checkbox “rond” */
+.sheet-circle-check {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sheet-circle-check input {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.sheet-circle-check span {
+  width: 26px;
+  height: 26px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.sheet-circle-check input:checked+span {
+  background: radial-gradient(var(--ink) 45%, transparent 46%);
+}
+
+/************ Blessures ************/
+.sheet-wounds .sheet-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.sheet-windex {
+  display: inline-block;
+  min-width: 18px;
+  text-align: right;
+  font-weight: 700;
+}
+
+/************ Cercles Soma / XP ************/
+.sheet-circles {
+  position: absolute;
+  right: 28px;
+  bottom: 24px;
+  display: flex;
+  gap: 20px;
+}
+
+.sheet-bigcircle {
+  width: 118px;
+  height: 118px;
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.sheet-circle-label {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.sheet-circle-input {
+  width: 64px;
+  text-align: center;
+  font-size: 20px;
+  border: none;
+  border-bottom: 2px solid var(--ink);
+  background: transparent;
+}
+
+/************ Misc ************/
+textarea:focus,
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+label {
+  cursor: default;
+}

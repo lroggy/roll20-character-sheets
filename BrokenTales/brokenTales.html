@@ -1,0 +1,152 @@
+<script type="text/worker">
+    on('clicked:roll_test', () => {
+
+    });
+</script>
+
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="brokenTales.css">
+</head>
+
+<body>
+    <!-- Broken Tales — Fiche de Chasseur (Roll20) -->
+    <div class="sheet-page">
+
+        <!-- ENTÊTE -->
+        <header class="sheet-header">
+            <div class="sheet-header-left">
+                <div class="sheet-block">
+                    <div class="sheet-label">Fiche de Chasseur</div>
+                    <label class="sheet-inline">
+                        Joueur :
+                        <input type="text" name="attr_joueur" class="sheet-line" />
+                    </label>
+                    <label class="sheet-inline">
+                        Chasseur :
+                        <input type="text" name="attr_chasseur" class="sheet-line" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="sheet-header-right">
+                <div class="sheet-title-logo">Broken<br>Tales</div>
+                <div class="sheet-block">
+                    <div class="sheet-label">Description :</div>
+                    <textarea name="attr_description" class="sheet-ruled" rows="4"></textarea>
+                </div>
+            </div>
+        </header>
+
+        <!-- SEPARATEUR -->
+        <div class="sheet-divider">
+            <span>Descripteurs et Dons</span>
+        </div>
+
+        <!-- CORPS EN 2 COLONNES -->
+        <section class="sheet-two-cols">
+            <!-- Colonne gauche -->
+            <div class="sheet-col">
+                <!-- Descripteur 1 -->
+                <div class="sheet-descriptor">
+                    <label class="sheet-circle-check">
+                        <input type="checkbox" name="attr_descr1_check">
+                        <span></span>
+                    </label>
+                    <div class="sheet-descriptor-body">
+                        <label class="sheet-label-sm">Descripteur :</label>
+                        <textarea name="attr_descr1" class="sheet-ruled"></textarea>
+                    </div>
+                </div>
+                <div class="sheet-descriptor-body">
+                    <label class="sheet-label-sm mt6">Don :</label>
+                    <textarea name="attr_don1" class="sheet-ruled"></textarea>
+                </div>
+
+                <!-- Descripteur 2 -->
+                <div class="sheet-descriptor mt16">
+                    <label class="sheet-circle-check">
+                        <input type="checkbox" name="attr_descr2_check">
+                        <span></span>
+                    </label>
+                    <div class="sheet-descriptor-body">
+                        <label class="sheet-label-sm">Descripteur :</label>
+                        <textarea name="attr_descr2" class="sheet-ruled"></textarea>
+                    </div>
+                </div>
+                <div class="sheet-descriptor-body">
+                    <label class="sheet-label-sm mt6">Don :</label>
+                    <textarea name="attr_don2" class="sheet-ruled" rows="4"></textarea>
+                </div>
+
+                <!-- EQUIPEMENT -->
+                <div class="sheet-divider small mt20"><span>Équipement</span></div>
+                <textarea name="attr_equipement" class="sheet-ruled" rows="8"></textarea>
+            </div>
+
+            <!-- Colonne droite -->
+            <div class="sheet-col">
+                <!-- Descripteur 3 -->
+                <div class="sheet-descriptor">
+                    <label class="sheet-circle-check">
+                        <input type="checkbox" name="attr_descr3_check">
+                        <span></span>
+                    </label>
+                    <div class="sheet-descriptor-body">
+                        <label class="sheet-label-sm">Descripteur :</label>
+                        <textarea name="attr_descr3" class="sheet-ruled"></textarea>
+                    </div>
+                </div>
+                <div class="sheet-descriptor-body">
+                    <label class="sheet-label-sm mt6">Sombre Ego :</label>
+                    <textarea name="attr_sombreEgo" class="sheet-ruled"></textarea>
+
+                    <label class="sheet-label-sm mt10">Déclencheur :</label>
+                    <textarea name="attr_declencheur" class="sheet-ruled" rows="3"></textarea>
+                </div>
+
+                <!-- BLESSURES -->
+                <div class="sheet-divider small mt12"><span>Blessures</span></div>
+                <div class="sheet-wounds">
+                    <label class="sheet-inline"><span class="sheet-windex">1.</span>
+                        <input type="text" name="attr_blessure1" class="sheet-ruled-one" />
+                    </label>
+                    <label class="sheet-inline"><span class="sheet-windex">2.</span>
+                        <input type="text" name="attr_blessure2" class="sheet-ruled-one" />
+                    </label>
+                    <label class="sheet-inline"><span class="sheet-windex">3.</span>
+                        <input type="text" name="attr_blessure3" class="sheet-ruled-one" />
+                    </label>
+
+                    <label class="sheet-block mt8">
+                        <span class="sheet-label-sm">Blessure supplémentaire :</span>
+                        <textarea name="attr_blessureSuppl" class="sheet-ruled" rows="3"></textarea>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- CERCLES SOMA / XP -->
+        <div class="sheet-circles">
+            <div class="sheet-bigcircle">
+                <div class="sheet-circle-label">Soma</div>
+                <input type="number" name="attr_soma" class="sheet-circle-input">
+            </div>
+            <div class="sheet-bigcircle">
+                <div class="sheet-circle-label">XP</div>
+                <input type="number" name="attr_xp" class="sheet-circle-input">
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
