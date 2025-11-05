@@ -5,16 +5,17 @@
 .sheet-page {
   --ink: #0b0b0b;
   --line: #111;
+  --line-light: rgba(0, 0, 0, 0.3);
   --gray: #5a5a5a;
   --accent: #0b0b0b;
-  font-family: 'Libre Baskerville', Georgia, serif;
+  --font-gothic: 'UnifrakturCook', 'Libre Baskerville', serif;
+  --font-base: 'Libre Baskerville', Georgia, serif;
+  font-family: var(--font-base);
   color: var(--ink);
   position: relative;
   width: 920px;
-  /* proche du ratio de ton image */
   min-height: 1160px;
   padding: 20px 22px 120px 22px;
-  /* bas laissé pour les cercles */
   box-sizing: border-box;
   background: #fff;
   border: 1px solid #000;
@@ -22,7 +23,6 @@
 
 /************ Header ************/
 .sheet-header {
-  font-family: 'Libre Baskerville', serif;
   font-size: 16px;
   display: grid;
   grid-template-columns: 46% 54%;
@@ -30,21 +30,24 @@
   align-items: start;
 }
 
-.sheet-header-left .sheet-label {
-  font-family: 'UnifrakturCook', 'Libre Baskerville', serif;
-  font-size: 25px;
-  font-weight: 700;
-  letter-spacing: .5px;
-  margin-bottom: 6px;
-}
+.sheet-header-left .sheet-label,
 .sheet-header-right .sheet-label {
-  font-family: 'UnifrakturCook', 'Libre Baskerville', serif;
-  font-size: 20px;
+  font-family: var(--font-gothic);
   font-weight: 700;
 }
 
+.sheet-header-left .sheet-label {
+  font-size: 25px;
+  letter-spacing: .5px;
+  margin-bottom: 6px;
+}
+
+.sheet-header-right .sheet-label {
+  font-size: 20px;
+}
+
 .sheet-title-logo {
-  font-family: "UnifrakturCook", Georgia, serif;
+  font-family: var(--font-gothic);
   font-size: 46px;
   line-height: .92;
   text-align: center;
@@ -56,55 +59,56 @@
 }
 
 .sheet-inline {
-  font-family: 'UnifrakturCook', 'Libre Baskerville', serif;
+  font-family: var(--font-gothic);
   display: block;
   margin: 6px 0;
 }
 
-/************ Inputs style “ligne” ************/
-.sheet-line {
-  font-family: 'Libre Baskerville', serif;
-  flex: 1;
-  width: 100%;
-  border: none;
-  border-bottom: 2px solid var(--line);
-  padding: 2px 4px 3px 4px;
-  background: transparent;
-  font-size: 14px;
-}
-
-.sheet-ruled-one {
-  font-family: 'Libre Baskerville', serif;
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid var(--line);
-  padding: 2px 4px 3px 4px;
-  background: transparent;
-  font-size: 14px;
-  --line: rgba(0, 0, 0, 0.3);
-}
-
+/************ Inputs style "ligne" ************/
+.sheet-line,
+.sheet-ruled-one,
 .sheet-ruled {
   width: 100%;
   border: none;
-  background:
-    repeating-linear-gradient(to bottom,
+  background: transparent;
+  font-size: 14px;
+  font-family: var(--font-base);
+}
+
+.sheet-line {
+  flex: 1;
+  border-bottom: 2px solid var(--line);
+  padding: 2px 4px 3px 4px;
+}
+
+.sheet-ruled-one {
+  border-bottom: 1px solid var(--line-light);
+  padding: 2px 4px 3px 4px;
+}
+
+.sheet-ruled {
+  background: repeating-linear-gradient(to bottom,
       transparent 0 22px,
-      var(--line) 22px 23px);
+      var(--line-light) 22px 23px);
   padding: 4px 6px;
   line-height: 23px;
   resize: vertical;
-  resize: vertical;
-  font-size: 14px;
   height: 36px;
-  /* ✅ taille par défaut plus petite */
-  --line: rgba(0, 0, 0, 0.3);
+}
 
+textarea.sheet-ruled.sheet-ruled-small {
+  min-height: 50px;
+  height: 80px;
+}
+
+textarea.sheet-ruled.sheet-ruled-medium {
+  min-height: 100px;
+  height: 200px;
 }
 
 /************ Divider ************/
 .sheet-divider {
-  font-family: 'UnifrakturCook', 'Libre Baskerville', serif;
+  font-family: var(--font-gothic);
   margin: 14px 0 10px 0;
   border-top: 3px solid var(--ink);
   position: relative;
@@ -144,16 +148,11 @@
   align-items: start;
 }
 
-.sheet-descriptor-body .sheet-label-sm {
-  font-family: 'UnifrakturCook', 'Libre Baskerville', serif;
-  font-weight: 700;
-  font-size: 15px;
-}
-
+.sheet-descriptor-body .sheet-label-sm,
 .sheet-block .sheet-label-sm {
-  font-family: 'UnifrakturCook', 'Libre Baskerville', serif;
+  font-family: var(--font-gothic);
   font-weight: 700;
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .mt6 {
@@ -178,6 +177,10 @@
 
 .mt20 {
   margin-top: 20px;
+}
+
+.ml20 {
+  margin-left: 50px;
 }
 
 /* Checkbox “rond” */
