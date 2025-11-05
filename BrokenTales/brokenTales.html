@@ -1,6 +1,46 @@
 <script type="text/worker">
-    on('clicked:roll_test', () => {
 
+    function rollDice() {
+        return 1 + Math.floor(Math.random() * 6);
+    }
+
+    on('clicked:roll', () => {
+        startRoll("!{{query=1}} {{Opposition=[[?{Niveau d'opposition|3|5|7}]]}} {{BonusDescripteur=[[?{Bonus de descripteur ?|Non,1|Oui,3}]]}} {{Soma=[[?{Soma utilisé|0}]]}} {{Dice=[[?{Dés lancés|0}]]}}", (results) => {
+            // Récupérer les valeurs saisies par l'utilisateur
+            const opposition = results.results.Opposition.result;
+            const descripteur = results.results.BonusDescripteur.result;
+            const soma = results.results.Soma.result;
+            const dice = results.results.Dice.result;
+
+            // Lancer les dés via Roll20
+            startRoll(`&{template:default} {{name=Jet de Chasseur}} {{Opposition=${opposition}}} {{Bonus Descripteur=${descripteur}}} {{Soma=${soma}}} {{Dés=[[${dice}d6>2]]}}`, (diceResults) => {
+                const diceRoll = diceResults.results.Dés.result;
+                const total = diceRoll + soma + descripteur;
+
+                let resultat = '';
+
+                if(diceRoll < dice) {
+                    resultat = '❌ **Échec critique** - Au moins un dé est tombé sur 1 ou 2';
+                } else if(total < opposition) {
+                    resultat = '❌ **Échec**';
+                } else if(total === opposition) {
+                    resultat = '✓ **Réussi : Oui Mais**';
+                } else if(total === opposition + 1) {
+                    resultat = '✓ **Réussi : Oui**';
+                } else {
+                    resultat = '✓✓ **Réussi : Oui Et**';
+                }
+
+                // Afficher le résultat dans le chat
+                startRoll(`&{template:default} {{name=Résultat}} {{Total=${total}}} {{Résultat=${resultat}}}`, (finalResults) => {
+                    finishRoll(finalResults.rollId);
+                });
+
+                finishRoll(diceResults.rollId);
+            });
+
+            finishRoll(results.rollId);
+        });
     });
 </script>
 
@@ -108,8 +148,8 @@
 
 
                     <div class="ml20">
-                    <label class="sheet-label-sm">Déclencheur :</label>
-                    <textarea name="attr_declencheur" class="sheet-ruled sheet-ruled-small" rows="3"></textarea>
+                        <label class="sheet-label-sm">Déclencheur :</label>
+                        <textarea name="attr_declencheur" class="sheet-ruled sheet-ruled-small" rows="3"></textarea>
                     </div>
                 </div>
 
@@ -126,10 +166,10 @@
                         <input type="text" name="attr_blessure3" class="sheet-ruled-one" />
                     </label>
 
-                        <label class="sheet-block">
-                            <span class="sheet-label-sm mt8">Blessure supplémentaire :</span>
-                            <textarea name="attr_blessureSuppl" class="sheet-ruled sheet-ruled-small" rows="3"></textarea>
-                        </label>
+                    <label class="sheet-block">
+                        <span class="sheet-label-sm mt8">Blessure supplémentaire :</span>
+                        <textarea name="attr_blessureSuppl" class="sheet-ruled sheet-ruled-small" rows="3"></textarea>
+                    </label>
                 </div>
                 <!-- DONS DE SCÉNARIO -->
                 <div class="sheet-divider small mt12"><span>Dons de scénario</span></div>
@@ -142,6 +182,8 @@
 
         <!-- CERCLES SOMA / XP -->
         <div class="sheet-circles">
+            <button type="action" name="act_roll">Jet</button>
+            <!-- <button type="roll" name="roll" value="/roll d20 + ?{Bonus?|0}" >Jet</button> -->
             <div class="sheet-bigcircle">
                 <div class="sheet-circle-label">Soma</div>
                 <input type="number" name="attr_soma" class="sheet-circle-input">
