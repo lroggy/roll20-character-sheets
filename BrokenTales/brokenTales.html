@@ -5,7 +5,7 @@
     }
 
     on('clicked:roll', () => {
-        startRoll("!{{query=1}} {{Opposition=[[?{Niveau d'opposition|3|5|7}]]}} {{BonusDescripteur=[[?{Bonus de descripteur ?|Non,1|Oui,3}]]}} {{Soma=[[?{Soma utilisé|0}]]}} {{Dice=[[?{Dés lancés|0}]]}}", (results) => {
+        startRoll("!{{query=1}} {{Opposition=[[?{Niveau d'opposition|5}]]}} {{BonusDescripteur=[[?{Bonus de descripteur ?|Non (1),1|Oui (3),3}]]}} {{Soma=[[?{Soma utilisé|0}]]}} {{Dice=[[?{Dés lancés|0}]]}}", (results) => {
             // Récupérer les valeurs saisies par l'utilisateur
             const opposition = results.results.Opposition.result;
             const descripteur = results.results.BonusDescripteur.result;
@@ -15,26 +15,37 @@
             // Lancer les dés via Roll20
             startRoll(`&{template:default} {{name=Jet de Chasseur}} {{Opposition=${opposition}}} {{Bonus Descripteur=${descripteur}}} {{Soma=${soma}}} {{Dés=[[${dice}d6>2]]}}`, (diceResults) => {
                 const diceRoll = diceResults.results.Dés.result;
-                const total = diceRoll + soma + descripteur;
+                const total = (diceRoll + soma + descripteur) + ' sur ' + opposition;
 
                 let resultat = '';
 
                 if(diceRoll < dice) {
-                    resultat = '❌ **Échec critique** - Au moins un dé est tombé sur 1 ou 2';
+                    resultat = '❌ **Échec** - Au moins un dé est tombé sur 1';
                 } else if(total < opposition) {
                     resultat = '❌ **Échec**';
                 } else if(total === opposition) {
-                    resultat = '✓ **Réussi : Oui Mais**';
+                    resultat = '✓ **Dénouement avec Coût (Oui mais ...)**';
                 } else if(total === opposition + 1) {
-                    resultat = '✓ **Réussi : Oui**';
+                    resultat = '✓ **Dénouement standard (Oui ...)**';
                 } else {
-                    resultat = '✓✓ **Réussi : Oui Et**';
+                    resultat = '✓ **Dénouement avec Avantage (Oui et ...)**';
                 }
 
                 // Afficher le résultat dans le chat
                 startRoll(`&{template:default} {{name=Résultat}} {{Total=${total}}} {{Résultat=${resultat}}}`, (finalResults) => {
                     finishRoll(finalResults.rollId);
                 });
+
+                // Réduire les points de Soma
+                if (soma > 0) {
+                    getAttrs(['soma'], function(values) {
+                        const currentSoma = parseInt(values.soma) || 0;
+                        const newSoma = currentSoma - soma;
+                        setAttrs({
+                            soma: newSoma
+                        });
+                    });
+                }
 
                 finishRoll(diceResults.rollId);
             });
@@ -182,7 +193,7 @@
 
         <!-- CERCLES SOMA / XP -->
         <div class="sheet-circles">
-            <button type="action" name="act_roll">Jet</button>
+            <button type="action" name="act_roll" class="sheet-roll-button">Jet</button>
             <!-- <button type="roll" name="roll" value="/roll d20 + ?{Bonus?|0}" >Jet</button> -->
             <div class="sheet-bigcircle">
                 <div class="sheet-circle-label">Soma</div>
