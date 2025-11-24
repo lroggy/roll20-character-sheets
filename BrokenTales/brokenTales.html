@@ -5,17 +5,18 @@
     }
 
     on('clicked:roll', () => {
-        startRoll("!{{query=1}} {{Opposition=[[?{Niveau d'opposition|5}]]}} {{BonusDescripteur=[[?{Bonus de descripteur ?|Non (1),1|Oui (3),3}]]}} {{Soma=[[?{Soma utilisé|0}]]}} {{Dice=[[?{Dés lancés|0}]]}}", (results) => {
+        startRoll("!{{query=1}} {{Opposition=[[?{Niveau d'opposition|5}]]}} {{BonusDescripteur=[[?{Bonus de descripteur ?|Non (1),1|Oui (3),3}]]}} {{SuccesBonus=[[?{Succès Bonus|0}]]}} {{Soma=[[?{Soma utilisé|0}]]}} {{Dice=[[?{Dés lancés|0}]]}}", (results) => {
             // Récupérer les valeurs saisies par l'utilisateur
             const opposition = results.results.Opposition.result;
             const descripteur = results.results.BonusDescripteur.result;
+            const succesBonus = results.results.SuccesBonus.result;
             const soma = results.results.Soma.result;
             const dice = results.results.Dice.result;
 
             // Lancer les dés via Roll20
-            startRoll(`&{template:default} {{name=Jet de Chasseur}} {{Opposition=${opposition}}} {{Bonus Descripteur=${descripteur}}} {{Soma=${soma}}} {{Dés=[[${dice}d6>2]]}}`, (diceResults) => {
+            startRoll(`&{template:default} {{name=Jet de Chasseur}} {{Opposition=${opposition}}} {{Bonus Descripteur=${descripteur}}} {{Succès Bonus=${succesBonus}}} {{Soma=${soma}}} {{Dés=[[${dice}d6>2]]}}`, (diceResults) => {
                 const diceRoll = diceResults.results.Dés.result;
-                const total = (diceRoll + soma + descripteur) + ' sur ' + opposition;
+                const total = descripteur + succesBonus + soma + diceRoll;
 
                 let resultat = '';
 
