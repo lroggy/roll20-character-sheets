@@ -73,6 +73,7 @@
         <!-- ENTÊTE -->
         <header class="sheet-header">
             <div class="sheet-header-left">
+                <div class="sheet-title-logo">Broken<br>Tales</div>
                 <div class="sheet-block">
                     <div class="sheet-label">Fiche de Chasseur</div>
                     <label class="sheet-inline">
@@ -87,7 +88,6 @@
             </div>
 
             <div class="sheet-header-right">
-                <div class="sheet-title-logo">Broken<br>Tales</div>
                 <div class="sheet-block">
                     <div class="sheet-label">Description :</div>
                     <textarea name="attr_description" class="sheet-ruled" rows="4"></textarea>
@@ -139,6 +139,37 @@
                 <!-- EQUIPEMENT -->
                 <div class="sheet-divider small mt20"><span>Équipement</span></div>
                 <textarea name="attr_equipement" class="sheet-ruled" rows="8"></textarea>
+
+
+                <!-- DESCRIPTEURS SUPPLEMENTAIRES -->
+                <div class="sheet-divider small mt20"><span>Descripteurs supplémentaires</span></div>
+                <div class="sheet-descriptor">
+                    <label class="sheet-circle-check">
+                        <input type="checkbox" name="attr_descr1_check">
+                        <span></span>
+                    </label>
+                    <div class="sheet-descriptor-body">
+                        <textarea name="attr_descr4" class="sheet-ruled sheet-ruled-small"></textarea>
+                    </div>
+                </div>
+                <div class="sheet-descriptor">
+                    <label class="sheet-circle-check">
+                        <input type="checkbox" name="attr_descr1_check">
+                        <span></span>
+                    </label>
+                    <div class="sheet-descriptor-body">
+                        <textarea name="attr_descr5" class="sheet-ruled sheet-ruled-small"></textarea>
+                    </div>
+                </div>
+                <div class="sheet-descriptor">
+                    <label class="sheet-circle-check">
+                        <input type="checkbox" name="attr_descr1_check">
+                        <span></span>
+                    </label>
+                    <div class="sheet-descriptor-body">
+                        <textarea name="attr_descr6" class="sheet-ruled sheet-ruled-small"></textarea>
+                    </div>
+                </div>
             </div>
 
             <!-- Colonne droite -->
@@ -189,22 +220,32 @@
                     <span class="sheet-label-sm">Dons supplémentaire :</span>
                     <textarea name="attr_donsSuppl" class="sheet-ruled sheet-ruled-small" rows="3"></textarea>
                 </label>
+
+
+
+                <!-- CERCLES SOMA / XP -->
+                <div class="sheet-circles">
+                    <button type="action" name="act_roll" class="sheet-roll-button">Jet</button>
+                    <!-- <button type="roll" name="roll" value="/roll d20 + ?{Bonus?|0}" >Jet</button> -->
+                    <div class="sheet-bigcircle">
+                        <div class="sheet-circle-label">Soma</div>
+                        <div class="sheet-soma-wrapper">
+                            <input type="number" name="attr_soma" class="sheet-soma-current">
+                            <span class="sheet-soma-slash">/</span>
+                            <input type="number" name="attr_soma_max" class="sheet-soma-max">
+                        </div>
+                    </div>
+                    <div class="sheet-bigcircle">
+                        <div class="sheet-circle-label">XP</div>
+                        <input type="number" name="attr_xp" class="sheet-circle-input">
+                    </div>
+                </div>
             </div>
+
+
+
         </section>
 
-        <!-- CERCLES SOMA / XP -->
-        <div class="sheet-circles">
-            <button type="action" name="act_roll" class="sheet-roll-button">Jet</button>
-            <!-- <button type="roll" name="roll" value="/roll d20 + ?{Bonus?|0}" >Jet</button> -->
-            <div class="sheet-bigcircle">
-                <div class="sheet-circle-label">Soma</div>
-                <input type="number" name="attr_soma" class="sheet-circle-input">
-            </div>
-            <div class="sheet-bigcircle">
-                <div class="sheet-circle-label">XP</div>
-                <input type="number" name="attr_xp" class="sheet-circle-input">
-            </div>
-        </div>
 
     </div>
 

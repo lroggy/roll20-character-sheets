@@ -13,7 +13,7 @@
   font-family: var(--font-base);
   color: var(--ink);
   position: relative;
-  width: 920px;
+  width: 1000px;
   min-height: 1160px;
   padding: 20px 22px 120px 22px;
   box-sizing: border-box;
@@ -98,12 +98,12 @@
 
 textarea.sheet-ruled.sheet-ruled-small {
   min-height: 50px;
-  height: 80px;
+  height: 90px;
 }
 
 textarea.sheet-ruled.sheet-ruled-medium {
   min-height: 100px;
-  height: 200px;
+  height: 220px;
 }
 
 /************ Divider ************/
@@ -232,7 +232,8 @@ textarea.sheet-ruled.sheet-ruled-medium {
 
 /************ Cercles Soma / XP ************/
 .sheet-circles {
-  position: absolute;
+  /*position: absolute;*/
+  margin-top: 50px;
   right: 28px;
   bottom: 24px;
   display: flex;
@@ -263,6 +264,30 @@ textarea.sheet-ruled.sheet-ruled-medium {
   border: none;
   border-bottom: 2px solid var(--ink);
   background: transparent;
+}
+
+/* Soma wrapper avec slash */
+.sheet-soma-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.sheet-soma-current,
+.sheet-soma-max {
+  width: 4rem !important;
+  text-align: center;
+  font-size: 18px;
+  border: none;
+  border-bottom: 2px solid var(--ink);
+  background: transparent;
+}
+
+.sheet-soma-slash {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
 }
 
 /************ Roll Button ************/
