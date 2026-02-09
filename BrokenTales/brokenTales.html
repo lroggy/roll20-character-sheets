@@ -4,6 +4,40 @@
         return 1 + Math.floor(Math.random() * 6);
     }
 
+    on('clicked:roll_v2', () => {
+        startRoll("!{{query=1}} {{BonusDescripteur=[[?{Nombre de descripteur impliqués ? (2 dés par descripteur)|0}]]}} {{Soma=[[?{Soma utilisé ? (1 dé par Soma)|0}]]}} {{Bonus=[[?{Dés bonus ? (1 dé par Bonus)|0}]]}}  {{targetScore=[[?{Score à atteindre ?|normal (4+),0|Avantagé (3+),-1|Désavantagé (5+),1}]]}}", (results) => {
+            // Récupérer les valeurs saisies par l'utilisateur
+            const nbDiceBase = 3;
+            const nbDiceDescripteur = results.results.BonusDescripteur.result * 2;
+            const soma = results.results.Soma.result;
+            const nbDiceSoma = soma;
+            const nbDiceBonus = results.results.Bonus.result;
+            const targetScore = 4+results.results.targetScore.result;
+
+            const nbDiceTotal = nbDiceBase + nbDiceDescripteur + nbDiceSoma + nbDiceBonus;
+
+            // Lancer les dés via Roll20
+            startRoll(`&{template:default} {{name=Jet de Chasseur}} {{Soma utilisé=${soma}}} {{Résultat=[[${nbDiceTotal}d6>${targetScore}]]}}`, (diceResults) => {
+
+                // Réduire les points de Soma
+                if (soma > 0) {
+                    getAttrs(['soma'], function(values) {
+                        const currentSoma = parseInt(values.soma) || 0;
+                        const newSoma = currentSoma - soma;
+                        setAttrs({
+                            soma: newSoma
+                        });
+                    });
+                }
+
+                finishRoll(diceResults.rollId);
+            });
+
+            finishRoll(results.rollId);
+        });
+    });
+
+
     on('clicked:roll', () => {
         startRoll("!{{query=1}} {{Opposition=[[?{Niveau d'opposition|5}]]}} {{BonusDescripteur=[[?{Bonus de descripteur ?|Non (1),1|Oui (3),3}]]}} {{SuccesBonus=[[?{Succès Bonus|0}]]}} {{Soma=[[?{Soma utilisé|0}]]}} {{Dice=[[?{Dés lancés|0}]]}}", (results) => {
             // Récupérer les valeurs saisies par l'utilisateur
@@ -225,7 +259,8 @@
 
                 <!-- CERCLES SOMA / XP -->
                 <div class="sheet-circles">
-                    <button type="action" name="act_roll" class="sheet-roll-button">Jet</button>
+                    <!-- <button type="action" name="act_roll" class="sheet-roll-button">Jet</button> -->
+                    <button type="action" name="act_roll_v2" class="sheet-roll-button">Jet V2</button>
                     <!-- <button type="roll" name="roll" value="/roll d20 + ?{Bonus?|0}" >Jet</button> -->
                     <div class="sheet-bigcircle">
                         <div class="sheet-circle-label">Soma</div>
