@@ -21,8 +21,8 @@
   border: 1px solid #000;
   /* Image de fond avec voile blanc pour la lisibilité */
   background:
-    /* linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.3)), */
-    url('https://raw.githubusercontent.com/lroggy/roll20-character-sheets/master/BrokenTales/background_white_1.jpg') top left / 100% 100% no-repeat;
+    linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+    url('https://raw.githubusercontent.com/lroggy/roll20-character-sheets/master/BrokenTales/background_white_2.png') top left / 100% 100% no-repeat;
   background-color: #f5f0ea; /* fallback si l'image ne charge pas */
 }
 
@@ -351,6 +351,11 @@ textarea::-webkit-scrollbar-thumb:hover {
 }
 
 /************ Misc ************/
+textarea,
+input {
+  color: #0b0b0b;
+}
+
 textarea:focus,
 input:focus {
   outline: none;
