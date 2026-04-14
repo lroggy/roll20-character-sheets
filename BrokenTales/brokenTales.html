@@ -5,12 +5,12 @@
     }
 
     on('clicked:roll_v2', () => {
-        startRoll("!{{query=1}} {{BonusDescripteur=[[?{Nombre de descripteur impliqués ? (2 dés par descripteur)|0}]]}} {{Soma=[[?{Soma utilisé ? (1 dé par Soma)|0}]]}} {{Bonus=[[?{Dés bonus ? (1 dé par Bonus)|0}]]}}  {{targetScore=[[?{Score à atteindre ?|normal (4+),0|Avantagé (3+),-1|Désavantagé (5+),1}]]}}", (results) => {
+        startRoll("!{{query=1}} {{BonusDescripteur=[[?{Nombre de descripteur impliqués ? (2 dés par descripteur)|0}]]}} {{Soma=[[?{Soma utilisé ? (2 dé par Soma)|0}]]}} {{Bonus=[[?{Dés bonus ? (1 dé par Bonus)|0}]]}} {{targetScore=[[?{Score à atteindre ?|normal (4+),0|Avantagé (3+),-1|Désavantagé (5+),1}]]}}", (results) => {
             // Récupérer les valeurs saisies par l'utilisateur
             const nbDiceBase = 3;
             const nbDiceDescripteur = results.results.BonusDescripteur.result * 2;
             const soma = results.results.Soma.result;
-            const nbDiceSoma = soma;
+            const nbDiceSoma = soma * 2;
             const nbDiceBonus = results.results.Bonus.result;
             const targetScore = 4+results.results.targetScore.result;
 

@@ -13,12 +13,17 @@
   font-family: var(--font-base);
   color: var(--ink);
   position: relative;
-  width: 1000px;
+  width: 100%;
+  max-width: 1000px;
   min-height: 1160px;
   padding: 20px 22px 120px 22px;
   box-sizing: border-box;
-  background: #fff;
   border: 1px solid #000;
+  /* Image de fond avec voile blanc pour la lisibilité */
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.87), rgba(255, 255, 255, 0.87)),
+    url('background.jpg') center top / cover no-repeat;
+  background-color: #f5f0ea; /* fallback si l'image ne charge pas */
 }
 
 /************ Header ************/
@@ -118,7 +123,8 @@ textarea.sheet-ruled.sheet-ruled-medium {
 .sheet-divider span {
   position: relative;
   top: -12px;
-  background: #fff;
+  /* Légèrement transparent pour laisser transparaître la texture de fond */
+  background: rgba(245, 240, 234, 0.96);
   padding: 0 8px;
   font-weight: 700;
   font-size: 18px;
@@ -132,7 +138,7 @@ textarea.sheet-ruled.sheet-ruled-medium {
 /************ Layout 2 colonnes ************/
 .sheet-two-cols {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 18px;
 }
 
@@ -330,4 +336,45 @@ input:focus {
 
 label {
   cursor: default;
+}
+
+/************ Responsive ************/
+
+/* Header en colonne unique sous 640px */
+@media (max-width: 640px) {
+  .sheet-header {
+    grid-template-columns: 1fr;
+  }
+
+  .sheet-header-right {
+    margin-top: 0;
+  }
+
+  .sheet-page {
+    padding: 16px 14px 100px 14px;
+  }
+
+  .sheet-title-logo {
+    font-size: 36px;
+  }
+}
+
+/* Cercles en ligne wrap sur petits écrans */
+@media (max-width: 520px) {
+  .sheet-circles {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .sheet-bigcircle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .sheet-roll-button {
+    width: 96px;
+    height: 100px;
+    font-size: 16px;
+  }
 }
