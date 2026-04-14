@@ -21,8 +21,8 @@
   border: 1px solid #000;
   /* Image de fond avec voile blanc pour la lisibilité */
   background:
-    linear-gradient(rgba(255, 255, 255, 0.87), rgba(255, 255, 255, 0.87)),
-    url('background.jpg') center top / cover no-repeat;
+    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.3)),
+    url('https://raw.githubusercontent.com/lroggy/roll20-character-sheets/master/BrokenTales/background_2.jpg') center top / cover no-repeat;
   background-color: #f5f0ea; /* fallback si l'image ne charge pas */
 }
 
